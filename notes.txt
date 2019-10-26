@@ -1,0 +1,6 @@
+alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+
+
+start postgres server = pg_start
+stop postgres server = pg_stop
