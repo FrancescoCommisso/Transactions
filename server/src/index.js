@@ -11,7 +11,7 @@ const { sequelize, models } = require("./models");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: false }));
 app.use(pino);
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "../../client/build")));
 
 // graphql
 var { buildSchema } = require("graphql");
@@ -41,7 +41,7 @@ sequelize.sync().then(() => {
 
 app.get("/test", async (req, res) => {
   const { userData } = require("./data/index")(models);
-  const userService =
+  // const userService =
 
   const resp = await userData.newUser({
     firstName: "francesco",
