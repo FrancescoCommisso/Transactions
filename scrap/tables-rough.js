@@ -3,7 +3,8 @@ const Users = {
   firstName: "string",
   lastName: "string",
   userName: "string",
-  password: "string"
+  password: "string",
+  interval: "string"
 };
 
 const Budgets = {
@@ -16,7 +17,6 @@ const Budgets = {
 const Paychecks = {
   paycheckId: "uuid",
   amount: "string",
-  payDayFormula: "string",
   name: "string",
   user: "uuid"
 };

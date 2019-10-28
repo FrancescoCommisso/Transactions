@@ -1,5 +1,9 @@
 const UserService = require("./userService");
 
-module.exports = {
-  UserService
+module.exports = data => {
+  const userService = new UserService(data);
+
+  return {
+    userService
+  };
 };
