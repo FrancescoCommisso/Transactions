@@ -20,8 +20,18 @@ const user = (sequelize, { UUID, STRING, UUIDV4 }) => {
     }
   });
   User.associate = models => {
-    // User.hasMany(models.Transaction, { onDelete: "CASCADE" });
-    // User.hasMany(models.Budget, { onDelete: "CASCADE" });
+    User.Transaction = User.hasMany(models.Transaction, {
+      foreignKey: "userId",
+      onDelete: "CASCADE"
+    });
+    User.Budget = User.hasMany(models.Budget, {
+      foreignKey: "userId",
+      onDelete: "CASCADE"
+    });
+    User.Paycheck = User.hasMany(models.Paycheck, {
+      foreignKey: "userId",
+      onDelete: "CASCADE"
+    });
   };
   User.findByLogin = async login => {
     let user = await User.findOne({
