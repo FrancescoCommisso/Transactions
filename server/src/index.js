@@ -9,7 +9,16 @@ const routes = require("./routes");
 const { sequelize, models } = require("./models");
 const data = require("./data")(models);
 const services = require("./services")(data);
+const cors = require("cors");
+const Auth = require("./auth");
 
+const auth = new Auth();
+
+app.use(
+  cors({
+    origin: "http://localhost:3000"
+  })
+);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: false }));
 app.use(pino);
