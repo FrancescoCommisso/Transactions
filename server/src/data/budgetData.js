@@ -3,14 +3,21 @@ class BudgetData {
     this.model = model;
   }
 
-  async newBudget({ budgetId, name, cap, userId }, transaction) {
-    const newBudget = await this.model.Budget.build({
-      budgetId,
+  async newBudget({ name, cap, userId }) {
+    return this.model.Budget.create({
       name,
       cap,
       userId
     });
-    return newBudget.save({ transaction });
+  }
+
+  async updateBudgetByBudgetId(updateFields, budgetId) {
+    const res = await this.model.Budget.update(updateFields, {
+      where: { budgetId },
+      returning: true
+    });
+
+    return res[1][0];
   }
 }
 module.exports = BudgetData;

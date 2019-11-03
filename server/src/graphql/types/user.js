@@ -1,9 +1,9 @@
 const { GraphQLString, GraphQLObjectType, GraphQLList } = require("graphql");
 const { attributeFields } = require("graphql-sequelize");
+const { resolver } = require("graphql-sequelize");
 const {
   models: { User }
 } = require("../../models/index");
-const { resolver } = require("graphql-sequelize");
 
 module.exports = new GraphQLObjectType({
   name: "User",

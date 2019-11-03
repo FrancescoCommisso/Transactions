@@ -1,61 +1,65 @@
 const { GraphQLString, GraphQLNonNull, GraphQLBoolean } = require("graphql");
-const { budgetType } = require("../types");
+const { paycheckType } = require("../types");
 const { resolver } = require("graphql-sequelize");
 
 module.exports = () => ({
-  createBudget: {
-    type: budgetType,
+  createPaycheck: {
+    type: paycheckType,
     args: {
       name: { type: new GraphQLNonNull(GraphQLString) },
-      cap: { type: GraphQLString },
+      amount: { type: GraphQLString },
       userId: { type: new GraphQLNonNull(GraphQLString) }
     },
     resolve: async (
       root,
-      { name, cap, userId },
-      { services, services: { budgetService, unitOfWorkService } }
+      { name, amount, userId },
+      { services, services: { paycheckService, unitOfWorkService } }
     ) => {
       console.log("services:", services);
       let transaction;
       try {
         transaction = await unitOfWorkService.transaction();
-        const newBudget = await budgetService.newBudget({ name, cap, userId });
+        const newPaycheck = await paycheckService.newPaycheck({
+          name,
+          amount,
+          userId
+        });
         await transaction.commit();
-        return newBudget;
+        return newPaycheck;
       } catch (e) {
         if (transaction) await transaction.rollback();
-        console.error("Error creating budget: ", e);
+        console.error("Error creating paycheck: ", e);
         return null;
       }
     }
   },
-  updateBudget: {
-    type: budgetType,
+  updatePaycheck: {
+    type: paycheckType,
     args: {
       name: { type: GraphQLString },
-      cap: { type: GraphQLString },
-      budgetId: { type: new GraphQLNonNull(GraphQLString) }
+      amount: { type: GraphQLString },
+      paycheckId: { type: new GraphQLNonNull(GraphQLString) }
     },
     resolve: async (
       root,
-      { name, cap, budgetId },
-      { services: { budgetService, unitOfWorkService } }
+      { name, amount, paycheckId },
+      { services: { paycheckService, unitOfWorkService } }
     ) => {
       let transaction;
       try {
         transaction = await unitOfWorkService.transaction();
-        const updatedBudget = await budgetService.updateBudgetByBudgetId(
+        const updatedPaycheck = await paycheckService.updatePaycheckByPaycheckId(
           {
             name,
-            cap
+            amount
           },
-          budgetId
+          paycheckId
         );
         await transaction.commit();
-        return updatedBudget;
+        return updatedPaycheck;
       } catch (e) {
         if (transaction) await transaction.rollback();
-        console.error("Error creating budget: ", e);
+        console.error("Error creating paycheck: ", e);
         return null;
       }
     }

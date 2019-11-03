@@ -35,10 +35,9 @@ module.exports = () => ({
   updateUser: {
     type: userType,
     args: {
-      firstName: { type: new GraphQLNonNull(GraphQLString) },
+      firstName: { type: GraphQLString },
       lastName: { type: GraphQLString },
-      email: { type: new GraphQLNonNull(GraphQLString) },
-
+      email: { type: GraphQLString },
       userId: { type: new GraphQLNonNull(GraphQLString) }
     },
     resolve: async (

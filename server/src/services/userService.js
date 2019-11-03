@@ -4,16 +4,16 @@ class UserService {
     this.stateData = stateData;
   }
 
-  async newUser(args, transaction) {
-    return this.userData.newUser(args, transaction);
+  async newUser(args) {
+    return this.userData.newUser(args);
   }
 
   async getAllUsers() {
     return this.userData.getAllUsers();
   }
 
-  async updateUser(updateFields, userId, transaction) {
-    return this.userData.updateUserByUserId(updateFields, userId, transaction);
+  async updateUser(updateFields, userId) {
+    return this.userData.updateUserByUserId(updateFields, userId);
   }
 }
 

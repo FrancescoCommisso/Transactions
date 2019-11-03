@@ -3,13 +3,12 @@ class UserData {
     this.model = model;
   }
 
-  async newUser({ firstName, lastName, email }, transaction) {
-    const newUser = await this.model.User.build({
+  async newUser({ firstName, lastName, email }) {
+    return this.model.User.create({
       firstName,
       lastName,
       email
     });
-    return newUser.save({ transaction });
   }
 
   async updateUserByUserId(updateFields, userId) {

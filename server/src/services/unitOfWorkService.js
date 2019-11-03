@@ -4,11 +4,7 @@ class UnitOfWorkService {
     this.stateData = stateData;
   }
   async transaction() {
-    console.log("sercice transaction call");
-
-    const t = await this.unitOfWorkData.transaction();
-    console.log("sercice transaction complete");
-    return t;
+    return this.unitOfWorkData.transaction();
   }
 
   async commit() {

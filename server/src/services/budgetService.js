@@ -7,6 +7,9 @@ class BudgetService {
   async newBudget(args) {
     return this.budgetData.newBudget(args);
   }
+  async updateBudgetByBudgetId(updateFields, budgetId) {
+    return this.budgetData.updateBudgetByBudgetId(updateFields, budgetId);
+  }
 }
 
 module.exports = BudgetService;

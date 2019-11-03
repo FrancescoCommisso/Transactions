@@ -1,4 +1,4 @@
-const transaction = (sequelize, { UUID, UUIDV4, STRING }) => {
+const transaction = (sequelize, { UUID, UUIDV4, DATE, STRING }) => {
   const Transaction = sequelize.define("transaction", {
     transactionId: {
       type: UUID,
@@ -8,6 +8,7 @@ const transaction = (sequelize, { UUID, UUIDV4, STRING }) => {
     },
     vendor: STRING,
     amount: STRING,
+    date: DATE,
     group: STRING
   });
   Transaction.associate = models => {

@@ -1,14 +1,23 @@
-const { GraphQLString, GraphQLObjectType } = require("graphql");
+const { GraphQLString, GraphQLList, GraphQLObjectType } = require("graphql");
 const { attributeFields } = require("graphql-sequelize");
+const { resolver } = require("graphql-sequelize");
+
 const {
   models: { Budget }
 } = require("../../models/index");
-const { resolver } = require("graphql-sequelize");
 
 module.exports = new GraphQLObjectType({
   name: "Budget",
   descriptions: "A budget",
-  fields: {
-    ...attributeFields(Budget)
+  fields: () => {
+    const { transactionType } = require("./");
+
+    return {
+      ...attributeFields(Budget),
+      transactions: {
+        type: new GraphQLList(transactionType),
+        resolve: resolver(Budget.Transaction)
+      }
+    };
   }
 });
