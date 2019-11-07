@@ -10,9 +10,6 @@ const { sequelize, models } = require("./models");
 const data = require("./data")(models);
 const services = require("./services")(data);
 const cors = require("cors");
-const Auth = require("./auth");
-
-const auth = new Auth();
 
 app.use(
   cors({
