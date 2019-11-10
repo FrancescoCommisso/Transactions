@@ -9,7 +9,7 @@ export const Auth0Context = React.createContext();
 export const useAuth0 = () => useContext(Auth0Context);
 export const Auth0Provider = ({
   children,
-  onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
+  onRedirectCallback = "http://localhost:3000/callback",
   ...initOptions
 }) => {
   const [isAuthenticated, setIsAuthenticated] = useState();
@@ -17,9 +17,9 @@ export const Auth0Provider = ({
   const [auth0Client, setAuth0] = useState();
   const [loading, setLoading] = useState(true);
   const [popupOpen, setPopupOpen] = useState(false);
+  const [userId, setUserId] = useState();
 
   useEffect(() => {
-    console.log("auth0: ", auth0Client);
     return () => {};
   }, [auth0Client]);
 
@@ -49,17 +49,19 @@ export const Auth0Provider = ({
   }, []);
 
   const loginWithPopup = async (params = {}) => {
-    setPopupOpen(true);
-    try {
-      await auth0Client.loginWithPopup(params);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setPopupOpen(false);
+    if (!isAuthenticated) {
+      setPopupOpen(true);
+      try {
+        await auth0Client.loginWithPopup(params);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setPopupOpen(false);
+      }
+      const user = await auth0Client.getUser();
+      setUser(user);
+      setIsAuthenticated(true);
     }
-    const user = await auth0Client.getUser();
-    setUser(user);
-    setIsAuthenticated(true);
   };
 
   const handleRedirectCallback = async () => {
@@ -86,6 +88,19 @@ export const Auth0Provider = ({
         logout: (...p) => auth0Client.logout(...p)
       }}
     >
+      {console.log("values: ", {
+        isAuthenticated,
+        user,
+        loading,
+        popupOpen,
+        loginWithPopup,
+        handleRedirectCallback,
+        getIdTokenClaims: (...p) => auth0Client.getIdTokenClaims(...p),
+        loginWithRedirect: (...p) => auth0Client.loginWithRedirect(...p),
+        getTokenSilently: (...p) => auth0Client.getTokenSilently(...p),
+        getTokenWithPopup: (...p) => auth0Client.getTokenWithPopup(...p),
+        logout: (...p) => auth0Client.logout(...p)
+      })}
       {children}
     </Auth0Context.Provider>
   );

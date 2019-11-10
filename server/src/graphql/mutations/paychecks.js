@@ -7,7 +7,7 @@ module.exports = () => ({
     type: paycheckType,
     args: {
       name: { type: new GraphQLNonNull(GraphQLString) },
-      amount: { type: GraphQLString },
+      amount: { type: new GraphQLNonNull(GraphQLString) },
       userId: { type: new GraphQLNonNull(GraphQLString) }
     },
     resolve: async (

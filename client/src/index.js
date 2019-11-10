@@ -24,10 +24,13 @@ ReactDOM.render(
   <Auth0Provider
     domain={config.domain}
     client_id={config.clientId}
-    redirect_uri={window.location.origin}
+    redirect_uri={"http://localhost:3000/callback"}
     onRedirectCallback={onRedirectCallback}
   >
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+    ,
   </Auth0Provider>,
   document.getElementById("root")
 );

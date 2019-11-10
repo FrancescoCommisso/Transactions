@@ -11,6 +11,9 @@ class UserService {
   async getAllUsers() {
     return this.userData.getAllUsers();
   }
+  async getUserByEmail(email) {
+    return this.userData.getUserByEmail(email);
+  }
 
   async updateUser(updateFields, userId) {
     return this.userData.updateUserByUserId(updateFields, userId);

@@ -23,5 +23,8 @@ class UserData {
   async getAllUsers() {
     return this.model.User.findAll();
   }
+  async getUserByEmail(email) {
+    return this.model.User.findOne({ where: { email } });
+  }
 }
 module.exports = UserData;

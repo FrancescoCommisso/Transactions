@@ -13,5 +13,12 @@ module.exports = () => ({
     ) => {
       return await userService.getAllUsers();
     }
+  },
+  getUserByEmail: {
+    type: userType,
+    args: { email: { type: GraphQLString } },
+    resolve: async (root, { email }, { services: { userService } }) => {
+      return await userService.getUserByEmail(email);
+    }
   }
 });
