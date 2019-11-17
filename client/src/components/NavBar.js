@@ -23,7 +23,9 @@ const NavLink = styled(Link)`
 `;
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout, loading } = useAuth0();
+
+  if (loading) return <div></div>;
 
   return (
     <NavDiv>

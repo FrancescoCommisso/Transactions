@@ -2,16 +2,14 @@ import React, { Component, useState, useEffect } from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import { GET_USER_BY_EMAIL, GET_USER_BY_AUTH0_ID } from "./queries";
 import client from "../graphql";
-import { useMutation, useQuery } from "@apollo/react-hooks";
-import { load } from "protobufjs";
+
 import { Redirect } from "react-router-dom";
 
 export const Callback = () => {
   // const [authUser, setAuthUser] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [newUser, setNewUser] = useState(null);
   const [first, setFirst] = useState(true);
-  const { user, setUser } = useAuth0();
+  const { user } = useAuth0();
 
   useEffect(() => {
     if (user && user.sub && first) {
@@ -36,5 +34,5 @@ export const Callback = () => {
 
   if (!first) return <Redirect to={"/profile"}> </Redirect>;
 
-  return <div>Loading</div>;
+  return <div></div>;
 };

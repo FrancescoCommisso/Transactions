@@ -8,19 +8,7 @@ const ButtonWrapper = styled.span`
   margin: 20px;
 `;
 
-const PrimaryButton = styled.button`
-  background-color: #6dd400;
-  color: white;
-`;
-
-const BudgetLine = ({
-  handleChange,
-  index,
-  deleteBudget,
-  nameVal,
-  capVal,
-  prevValues
-}) => {
+const BudgetLine = ({ handleChange, index, deleteBudget, nameVal, capVal }) => {
   return (
     <div
       style={{
@@ -88,7 +76,6 @@ export const CreateBudgets = ({ nextStep, previousStep, addBudgets }) => {
 
   return (
     <Wrapper>
-      {console.log("budgets: ", budgets)}
       <Title style={{ textAlign: "left" }}>
         <h1>Create Your Budgets</h1>
         <h3>No pressure. These can be editted later on.</h3>
@@ -102,9 +89,7 @@ export const CreateBudgets = ({ nextStep, previousStep, addBudgets }) => {
             capVal={p.value}
             key={i}
             index={i}
-          >
-            {console.log("mapping budgets")}
-          </BudgetLine>
+          ></BudgetLine>
         ))}
       </div>
       <div>

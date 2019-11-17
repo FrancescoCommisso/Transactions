@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react";
 
 import { CreateAccount } from "./CreateAccount";
-import { Button } from "semantic-ui-react";
 import StepWizard from "react-step-wizard";
-import { AddPaycheck } from "../AddPaycheck";
 import { CreatePaychecks } from "./CreatePaychecks";
 import { CreateBudgets } from "./CreateBudgets";
 import { ConfirmInfo } from "./ConfirmInfo";
@@ -14,11 +12,9 @@ export const IntakeWizard = () => {
   const [budgets, setBudgets] = useState({});
 
   const handlePersonalInfo = personalInfo => {
-    console.log("personalInfo: ", personalInfo);
     setPersonalInfo(personalInfo);
   };
   const handlePaymentInfo = paymentInfo => {
-    console.log("paymentInfo: ", paymentInfo);
     setPaymentInfo(paymentInfo);
   };
   const handleBudgets = budgets => {

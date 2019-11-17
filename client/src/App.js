@@ -1,8 +1,6 @@
 import React, { Context, createContext, useState } from "react";
 import "./App.css";
-import { Title } from "./components/Title";
 import NavBar from "./components/NavBar";
-import { useAuth0 } from "./react-auth0-spa";
 import { AddPaycheck } from "./components/AddPaycheck";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";

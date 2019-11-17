@@ -4,9 +4,8 @@ const {
   GraphQLBoolean,
   GraphQLList
 } = require("graphql");
-const { userType, paycheckType, budgetType } = require("../types");
+const { userType } = require("../types");
 const { BudgetInput, PaycheckInput } = require("../inputs");
-const { resolver } = require("graphql-sequelize");
 
 module.exports = () => ({
   createUser: {
@@ -76,12 +75,12 @@ module.exports = () => ({
   initializeUser: {
     type: GraphQLBoolean,
     args: {
-      firstName: { type: GraphQLString },
-      lastName: { type: GraphQLString },
-      gender: { type: GraphQLString },
-      email: { type: GraphQLString },
-      budgetPeriod: { type: GraphQLString },
-      dateOfBirth: { type: GraphQLString },
+      firstName: { type: new GraphQLNonNull(GraphQLString) },
+      lastName: { type: new GraphQLNonNull(GraphQLString) },
+      gender: { type: new GraphQLNonNull(GraphQLString) },
+      email: { type: new GraphQLNonNull(GraphQLString) },
+      budgetPeriod: { type: new GraphQLNonNull(GraphQLString) },
+      dateOfBirth: { type: new GraphQLNonNull(GraphQLString) },
       paychecks: { type: new GraphQLList(PaycheckInput) },
       budgets: { type: new GraphQLList(BudgetInput) },
       authId: { type: new GraphQLNonNull(GraphQLString) }

@@ -8,11 +8,6 @@ const ButtonWrapper = styled.span`
   margin: 20px;
 `;
 
-const PrimaryButton = styled.button`
-  background-color: #6dd400;
-  color: white;
-`;
-
 const BudgetLine = ({
   handleChange,
   index,
@@ -102,9 +97,7 @@ export const CreatePaychecks = ({ nextStep, previousStep, addPaymentInfo }) => {
             amountVal={p.value}
             key={i}
             index={i}
-          >
-            {console.log("mapping paychecks")}
-          </BudgetLine>
+          ></BudgetLine>
         ))}
       </div>
       <div>
