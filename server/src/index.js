@@ -9,7 +9,13 @@ const routes = require("./routes");
 const { sequelize, models } = require("./models");
 const data = require("./data")(models);
 const services = require("./services")(data);
+const cors = require("cors");
 
+app.use(
+  cors({
+    origin: "http://localhost:3000"
+  })
+);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: false }));
 app.use(pino);
@@ -18,9 +24,7 @@ app.use(express.static(path.join(__dirname, "../../client/build")));
 routes(app, services);
 
 sequelize.sync().then(() => {
-  app.listen(port, () => {
-    console.log(`Express server is running on ${port}`);
-  });
+  app.listen(port, () => {});
 });
 
 app.get("*", (req, res) => {

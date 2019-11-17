@@ -6,6 +6,10 @@ const user = (sequelize, { UUID, STRING, UUIDV4 }) => {
       allowNull: false,
       defaultValue: UUIDV4
     },
+    authId: {
+      type: STRING,
+      allowNull: false
+    },
     firstName: {
       type: STRING
     },
@@ -13,6 +17,12 @@ const user = (sequelize, { UUID, STRING, UUIDV4 }) => {
       type: STRING
     },
     email: {
+      type: STRING
+    },
+    gender: {
+      type: STRING
+    },
+    dateOfBirth: {
       type: STRING
     },
     budgetPeriod: {
@@ -44,6 +54,7 @@ const user = (sequelize, { UUID, STRING, UUIDV4 }) => {
     }
     return user;
   };
+
   return User;
 };
 module.exports = user;

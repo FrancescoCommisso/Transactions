@@ -7,7 +7,7 @@ module.exports = () => ({
     type: paycheckType,
     args: {
       name: { type: new GraphQLNonNull(GraphQLString) },
-      amount: { type: GraphQLString },
+      amount: { type: new GraphQLNonNull(GraphQLString) },
       userId: { type: new GraphQLNonNull(GraphQLString) }
     },
     resolve: async (
@@ -15,7 +15,6 @@ module.exports = () => ({
       { name, amount, userId },
       { services, services: { paycheckService, unitOfWorkService } }
     ) => {
-      console.log("services:", services);
       let transaction;
       try {
         transaction = await unitOfWorkService.transaction();

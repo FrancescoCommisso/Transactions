@@ -4,13 +4,18 @@ class TransactionService {
     this.stateData = stateData;
   }
 
-  async newTransaction(args) {
-    return this.transactionData.newTransaction(args);
+  async newTransaction(args, transaction) {
+    return this.transactionData.newTransaction(args, transaction);
   }
-  async updateTransactionByTransactionId(updateFields, transactionId) {
+  async updateTransactionByTransactionId(
+    updateFields,
+    transactionId,
+    transaction
+  ) {
     return this.transactionData.updateTransactionByTransactionId(
       updateFields,
-      transactionId
+      transactionId,
+      transaction
     );
   }
 }
