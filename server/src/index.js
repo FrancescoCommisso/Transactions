@@ -24,9 +24,7 @@ app.use(express.static(path.join(__dirname, "../../client/build")));
 routes(app, services);
 
 sequelize.sync().then(() => {
-  app.listen(port, () => {
-    console.log(`Express server is running on ${port}`);
-  });
+  app.listen(port, () => {});
 });
 
 app.get("*", (req, res) => {

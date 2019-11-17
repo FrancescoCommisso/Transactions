@@ -10,13 +10,17 @@ import Profile from "./components/Profile";
 import PrivateRoute from "./components/PrivateRoute";
 import { Login } from "./components/Login";
 import { Callback } from "./components/Callback";
+import { CreateAccount } from "./components/intakeWizard/CreateAccount";
+import { IntakeWizard } from "./components/intakeWizard";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <header>{/* <NavBar /> */}</header>
-        <Switch>
+        <header>
+          <NavBar />
+        </header>
+        <Switch style={{ textAlign: "center", backgroundColor: "blue" }}>
           <Route path="/" exact component={Login} />
           <PrivateRoute
             path="/add-paycheck"
@@ -24,45 +28,13 @@ function App() {
           ></PrivateRoute>
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/callback" component={Callback} />
+          <Route path="/create-account" component={CreateAccount} />
+          <Route path="/intake" component={IntakeWizard}></Route>
+          <PrivateRoute path="/add-paycheck" component={AddPaycheck} />
         </Switch>
       </BrowserRouter>
     </div>
   );
 }
-
-// import {
-//   UserContextProvider,
-//   UserContext
-// } from "./components/context/UserContext";
-// import { AddPaycheck } from "./components/AddPaycheck";
-// import { createAccount, CreateAccount } from "./components/createAccount";
-
-// const TestApp = userContext => (
-//   <div>
-//     <Title userContext={userContext}></Title>
-//     <CreateAccount></CreateAccount>
-
-//     <AddPaycheck userContext={userContext}></AddPaycheck>
-//   </div>
-// );
-
-// function App() {
-//   return (
-//     <UserContextProvider>
-//       <UserContext.Consumer>
-//         {userContext =>
-//           userContext.isAuthenticated ? (
-//             <TestApp></TestApp>
-//           ) : (
-//             <div>
-//               Not logged in
-//               <button onClick={userContext.handleLogin}>Login</button>
-//             </div>
-//           )
-//         }
-//       </UserContext.Consumer>
-//     </UserContextProvider>
-//   );
-// }
 
 export default App;

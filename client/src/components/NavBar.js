@@ -3,24 +3,61 @@
 import React from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import { Link } from "react-router-dom";
+import { NavButton } from "./common";
+import styled from "styled-components";
+import smallLogo from "../assets/small-logo.svg";
+
+const NavDiv = styled.div`
+  padding: 50px;
+  text-align: right;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const NavLink = styled(Link)`
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+`;
 
 const NavBar = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   return (
-    <div>
+    <NavDiv>
+      <img src={smallLogo} style={{ marginRight: "auto" }}></img>
       {!isAuthenticated && (
-        <button onClick={() => loginWithRedirect({})}>Log in</button>
-      )}
-
-      {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
-      {isAuthenticated && (
         <span>
-          <Link to="/">Home</Link>&nbsp;
-          <Link to="/profile">Profile</Link>
+          <NavLink>
+            <NavButton onClick={() => loginWithRedirect({})}>
+              Log in / Create Account
+            </NavButton>
+          </NavLink>
         </span>
       )}
-    </div>
+      {isAuthenticated && (
+        <span style={{ justifySelf: "end" }}>
+          <NavLink to="/dashboard">
+            <NavButton>Dashboard</NavButton>
+          </NavLink>
+          <NavLink to="/transactions">
+            <NavButton>Transactions</NavButton>
+          </NavLink>
+          <NavLink to="/budgets">
+            <NavButton>Budgets</NavButton>
+          </NavLink>
+          &nbsp;
+          <NavLink to="/profile">
+            <NavButton>Profile</NavButton>
+          </NavLink>
+          <NavLink>
+            <NavButton onClick={() => logout()}>Log out</NavButton>
+          </NavLink>
+        </span>
+      )}
+    </NavDiv>
   );
 };
 

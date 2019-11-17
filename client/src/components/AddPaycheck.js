@@ -8,6 +8,11 @@ const ButtonWrapper = styled.span`
   margin: 20px;
 `;
 
+const PrimaryButton = styled.button`
+  background-color: #6dd400;
+  color: white;
+`;
+
 export const AddPaycheck = () => {
   const [name, setName] = useState(null);
   const [amount, setAmount] = useState(null);
@@ -55,7 +60,7 @@ export const AddPaycheck = () => {
             <Button onClick={() => setIsOpen(() => false)}>Cancel</Button>
           </ButtonWrapper>
           <ButtonWrapper>
-            <Button
+            <PrimaryButton
               onClick={() => {
                 addPaycheck({
                   variables: {
@@ -67,7 +72,7 @@ export const AddPaycheck = () => {
               }}
             >
               Add
-            </Button>
+            </PrimaryButton>
             <div>{data && JSON.stringify(data)}</div>
           </ButtonWrapper>
         </div>

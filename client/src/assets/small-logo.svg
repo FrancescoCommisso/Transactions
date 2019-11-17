@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="119px" height="88px" viewBox="0 0 119 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#00FFF8" offset="0%"></stop>
+            <stop stop-color="#6DD7D4" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-828.000000, -316.000000)">
+            <g id="Group-3" transform="translate(827.000000, 323.000000)">
+                <g id="Donut-3" transform="translate(24.000000, 0.000000)" stroke-width="13">
+                    <path d="M37,74 C57.4345357,74 74,57.4345357 74,37 C74,16.5654643 57.4345357,0 37,0 C16.5654643,0 0,16.5654643 0,37 C0,57.4345357 16.5654643,74 37,74 Z" id="Oval" stroke="#6DD7D4" stroke-dasharray="4"></path>
+                    <path d="M37,74 C57.4345357,74 74,57.4345357 74,37 C74,16.5654643 57.4345357,0 37,0 C16.5654643,0 0,16.5654643 0,37 C0,57.4345357 16.5654643,74 37,74 Z" id="Oval" stroke="url(#linearGradient-1)" stroke-dasharray="117,283"></path>
+                </g>
+                <text id="p-a-y-c-h-u-n-k" font-family="Typewriter_Condensed-Bold, Typewriter_Condensed" font-size="18" font-style="condensed" font-weight="bold" fill="#000000">
+                    <tspan x="0" y="44">p a y c h u n k</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

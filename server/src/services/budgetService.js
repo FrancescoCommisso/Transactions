@@ -4,11 +4,13 @@ class BudgetService {
     this.stateData = stateData;
   }
 
-  async newBudget(args) {
-    return this.budgetData.newBudget(args);
+  async newBudget(args, transaction) {
+    return this.budgetData.newBudget(args, transaction);
   }
-  async updateBudgetByBudgetId(updateFields, budgetId) {
-    return this.budgetData.updateBudgetByBudgetId(updateFields, budgetId);
+  async updateBudgetByBudgetId(updateFields, budgetId, transaction) {
+    return this.budgetData.updateBudgetByBudgetId(updateFields, budgetId, {
+      transaction
+    });
   }
 }
 

@@ -3,19 +3,26 @@ class PaycheckData {
     this.model = model;
   }
 
-  async newPaycheck({ name, amount, userId }) {
-    return this.model.Paycheck.create({
-      name,
-      userId,
-      amount
-    });
+  async newPaycheck({ name, amount, userId }, transaction) {
+    return this.model.Paycheck.create(
+      {
+        name,
+        userId,
+        amount
+      },
+      { transaction }
+    );
   }
 
-  async updatePaycheckByPaycheckId(updateFields, paycheckId) {
-    const res = await this.model.Paycheck.update(updateFields, {
-      where: { paycheckId },
-      returning: true
-    });
+  async updatePaycheckByPaycheckId(updateFields, paycheckId, transaction) {
+    const res = await this.model.Paycheck.update(
+      updateFields,
+      {
+        where: { paycheckId },
+        returning: true
+      },
+      { transaction }
+    );
 
     return res[1][0];
   }

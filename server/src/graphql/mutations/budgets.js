@@ -15,7 +15,6 @@ module.exports = () => ({
       { name, cap, userId },
       { services, services: { budgetService, unitOfWorkService } }
     ) => {
-      console.log("services:", services);
       let transaction;
       try {
         transaction = await unitOfWorkService.transaction();

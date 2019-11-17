@@ -1,21 +1,40 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { useAuth0 } from "../react-auth0-spa";
+import { Wrapper } from "./common";
+import { Placeholder } from "semantic-ui-react";
 
 const Profile = () => {
-  const { loading, user } = useAuth0();
+  const [loading, setLoading] = useState(true);
+  const { user } = useAuth0();
 
-  if (loading || !user) {
-    return <div>Loading...</div>;
-  }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <Fragment>
-      <img src={user.picture} alt="Profile" />
-
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-      <code>{JSON.stringify(user, null, 2)}</code>
-    </Fragment>
+    <Wrapper>
+      {loading && (
+        <Placeholder>
+          <Placeholder.Header>
+            <Placeholder.Line></Placeholder.Line>
+          </Placeholder.Header>
+          <Placeholder.Paragraph>
+            <Placeholder.Line></Placeholder.Line>
+          </Placeholder.Paragraph>
+        </Placeholder>
+      )}
+      {!loading && (
+        <>
+          <h3 style={{ textAlign: "left" }}>
+            {user.firstName} {user.lastName}
+          </h3>
+          <h5 style={{ textAlign: "left" }}>{user.email}</h5>
+        </>
+      )}
+    </Wrapper>
   );
 };
 
