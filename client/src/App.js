@@ -8,8 +8,8 @@ import Profile from "./components/Profile";
 import PrivateRoute from "./components/PrivateRoute";
 import { Login } from "./components/Login";
 import { Callback } from "./components/Callback";
-import { CreateAccount } from "./components/intakeWizard/CreateAccount";
 import { IntakeWizard } from "./components/intakeWizard";
+import { Dashboard } from "./components/dashboard";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
           ></PrivateRoute>
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/callback" component={Callback} />
-          <Route path="/create-account" component={CreateAccount} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/intake" component={IntakeWizard}></Route>
           <PrivateRoute path="/add-paycheck" component={AddPaycheck} />
         </Switch>

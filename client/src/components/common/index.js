@@ -74,3 +74,16 @@ export const NavButton = styled.button`
     transform: translateY(-7px);
   }
 `;
+
+export const Widget = styled.div`
+  padding: 20px;
+  flex-grow: 0;
+  align-items: stretch;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  background-color: green;
+
+  @media (max-width: 768px) {
+    flex-basis: 100%;
+  }
+`;
