@@ -18,6 +18,9 @@ class UserService {
   async getUserByAuthId(authId) {
     return this.userData.getUserByAuthId(authId);
   }
+  async getUserByUserId(userId) {
+    return this.userData.getUserByUserId(userId);
+  }
 
   async updateUser(updateFields, authId, transaction) {
     return this.userData.updateUserByauthId(updateFields, authId, transaction);

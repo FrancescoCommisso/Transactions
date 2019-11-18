@@ -8,6 +8,7 @@ const user = (sequelize, { UUID, STRING, UUIDV4 }) => {
     },
     authId: {
       type: STRING,
+      unique: true,
       allowNull: false
     },
     firstName: {

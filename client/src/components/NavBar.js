@@ -32,7 +32,7 @@ const NavBar = () => {
       <img src={smallLogo} style={{ marginRight: "auto" }}></img>
       {!isAuthenticated && (
         <span>
-          <NavLink>
+          <NavLink to="/">
             <NavButton onClick={() => loginWithRedirect({})}>
               Log in / Create Account
             </NavButton>
@@ -54,7 +54,7 @@ const NavBar = () => {
           <NavLink to="/profile">
             <NavButton>Profile</NavButton>
           </NavLink>
-          <NavLink>
+          <NavLink to="/">
             <NavButton onClick={() => logout()}>Log out</NavButton>
           </NavLink>
         </span>

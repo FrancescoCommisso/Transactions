@@ -27,5 +27,12 @@ module.exports = () => ({
     resolve: async (root, { authId }, { services: { userService } }) => {
       return await userService.getUserByAuthId(authId);
     }
+  },
+  getUserByUserId: {
+    type: userType,
+    args: { userId: { type: GraphQLString } },
+    resolve: async (root, { userId }, { services: { userService } }) => {
+      return await userService.getUserByUserId(userId);
+    }
   }
 });

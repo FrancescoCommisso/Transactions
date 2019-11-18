@@ -10,9 +10,14 @@ module.exports = new GraphQLObjectType({
   descriptions: "A user",
   fields: () => {
     const { budgetType } = require("./");
+    const { paycheckType } = require("./");
 
     return {
       ...attributeFields(User),
+      paychecks: {
+        type: new GraphQLList(paycheckType),
+        resolve: resolver(User.Paycheck)
+      },
       budgets: {
         type: new GraphQLList(budgetType),
         resolve: resolver(User.Budget)

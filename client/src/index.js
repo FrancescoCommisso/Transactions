@@ -9,7 +9,6 @@ import client from "./graphql";
 import "semantic-ui-css/semantic.min.css";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
-import { Wrapper } from "./components/common";
 
 const onRedirectCallback = appState => {
   window.history.replaceState(
@@ -35,13 +34,5 @@ ReactDOM.render(
   </Auth0Provider>,
   document.getElementById("root")
 );
-
-// ReactDOM.render(
-//   <ApolloProvider client={client}>
-//     <App />
-//   </ApolloProvider>,
-
-//   document.getElementById("root")
-// );
 
 serviceWorker.unregister();

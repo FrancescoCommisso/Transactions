@@ -21,6 +21,52 @@ export const GET_USER_BY_EMAIL = gql`
   }
 `;
 
+export const GET_USER_BY_ID = gql`
+  query getUserByUserId($userId: String!) {
+    getUserByUserId(userId: $userId) {
+      firstName
+      lastName
+      email
+      gender
+      dateOfBirth
+      budgetPeriod
+      budgets {
+        name
+        cap
+        userId
+      }
+      paychecks {
+        amount
+        name
+        userId
+      }
+    }
+  }
+`;
+
+export const GET_USER_BY_AUTH = gql`
+  query getUserByAuthId($authId: String!) {
+    getUserByAuthId(authId: $authId) {
+      firstName
+      lastName
+      email
+      gender
+      dateOfBirth
+      budgetPeriod
+      budgets {
+        name
+        cap
+        userId
+      }
+      paychecks {
+        amount
+        name
+        userId
+      }
+    }
+  }
+`;
+
 export const GET_USER_BY_AUTH0_ID = gql`
   query getUserByAuth0($authId: String!) {
     getUserByAuthId(authId: $authId) {

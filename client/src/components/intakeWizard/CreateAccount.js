@@ -1,10 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Input, GridRow, Grid, Button } from "semantic-ui-react";
+import React, { useState } from "react";
+import { Input } from "semantic-ui-react";
 import styled from "styled-components";
-import { useMutation, useQuery } from "@apollo/react-hooks";
-import { PrimaryButton, SecondaryButton, Wrapper } from "../common";
-import { CREATE_USER_MUTATION } from "../queries";
-import { useAuth0 } from "../../react-auth0-spa";
+import { SecondaryButton, Wrapper } from "../common";
 import { Title } from "./styles";
 
 const StyledInput = styled(Input)`

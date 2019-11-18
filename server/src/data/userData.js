@@ -43,5 +43,8 @@ class UserData {
   async getUserByAuthId(authId) {
     return this.model.User.findOne({ where: { authId } });
   }
+  async getUserByUserId(userId) {
+    return this.model.User.findOne({ where: { userId } });
+  }
 }
 module.exports = UserData;

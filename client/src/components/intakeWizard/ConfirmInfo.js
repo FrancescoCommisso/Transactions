@@ -21,8 +21,8 @@ export const ConfirmInfo = ({
 
   useEffect(() => {
     console.log(initializeUser);
-    if (initializeUser === true) console.log("User created!");
-    if (initializeUser === false) console.log("Error creating user!");
+    if (initializeUser === true) console.message("User created!");
+    if (initializeUser === false) console.message("Error creating user!");
 
     return () => {};
   }, [initializeUser]);
@@ -47,7 +47,7 @@ export const ConfirmInfo = ({
       <div>
         {_.isArray(paymentInfo) &&
           paymentInfo.map((p, i) => (
-            <div>
+            <div key={i}>
               <p>{`${p.name} - $${p.amount}`}</p>
             </div>
           ))}
@@ -58,7 +58,7 @@ export const ConfirmInfo = ({
       <div>
         {_.isArray(budgets) &&
           budgets.map((p, i) => (
-            <div>
+            <div key={i}>
               <p>{`${p.name} - $${p.cap}`}</p>
             </div>
           ))}{" "}
