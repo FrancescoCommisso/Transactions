@@ -21,13 +21,13 @@ export const ConfirmInfo = ({
 
   useEffect(() => {
     console.log(initializeUser);
-    if (initializeUser === true) console.message("User created!");
-    if (initializeUser === false) console.message("Error creating user!");
+    if (initializeUser === true) console.log("User created!");
+    if (initializeUser === false) console.log("Error creating user!");
 
     return () => {};
   }, [initializeUser]);
 
-  if (initializeUser) return <Redirect to={"/profile"}> </Redirect>;
+  if (initializeUser) return <Redirect to={"/dashboard"}> </Redirect>;
 
   return (
     <Wrapper style={{ textAlign: "left" }}>

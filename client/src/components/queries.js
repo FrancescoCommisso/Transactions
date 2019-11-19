@@ -35,6 +35,13 @@ export const GET_USER_BY_ID = gql`
         cap
         userId
       }
+      transactions {
+        vendor
+        amount
+        date
+        group
+        budgetId
+      }
       paychecks {
         amount
         name
@@ -57,6 +64,13 @@ export const GET_USER_BY_AUTH = gql`
         name
         cap
         userId
+      }
+      transactions {
+        vendor
+        amount
+        date
+        group
+        budgetId
       }
       paychecks {
         amount

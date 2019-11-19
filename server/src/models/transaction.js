@@ -8,7 +8,7 @@ const transaction = (sequelize, { UUID, UUIDV4, DATE, STRING }) => {
     },
     vendor: STRING,
     amount: STRING,
-    date: DATE,
+    date: STRING,
     group: STRING
   });
   Transaction.associate = models => {

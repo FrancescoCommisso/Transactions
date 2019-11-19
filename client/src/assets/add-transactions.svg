@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="201px" height="174px" viewBox="0 0 201 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>Group 31</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="17" cy="17" r="17"></circle>
+        <filter x="-20.6%" y="-14.7%" width="141.2%" height="141.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-4210.000000, -196.000000)">
+            <g id="Group-31" transform="translate(4208.000000, 189.000000)">
+                <g id="Group-30" transform="translate(44.000000, 0.000000)">
+                    <g id="Group-27" transform="translate(0.000000, 16.000000)">
+                        <rect id="Rectangle" stroke="#979797" fill="#FFFFFF" x="0.5" y="0.5" width="104" height="114"></rect>
+                        <g id="Group-28" transform="translate(18.000000, 20.000000)" fill="#BBBBBB">
+                            <g id="Group-29">
+                                <g id="Group-26">
+                                    <g id="Group-25">
+                                        <rect id="Rectangle" x="0" y="34" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="0" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="17" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="51" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="68" width="19" height="8" rx="4"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="Group-29" transform="translate(25.000000, 0.000000)">
+                                <g id="Group-26">
+                                    <g id="Group-25">
+                                        <rect id="Rectangle" x="0" y="34" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="0" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="17" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="51" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="68" width="19" height="8" rx="4"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="Group-29" transform="translate(50.000000, 0.000000)">
+                                <g id="Group-26">
+                                    <g id="Group-25">
+                                        <rect id="Rectangle" x="0" y="34" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="0" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="17" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="51" width="19" height="8" rx="4"></rect>
+                                        <rect id="Rectangle" x="0" y="68" width="19" height="8" rx="4"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <text id="$" font-family="Typewriter_Condensed" font-size="24" font-style="condensed" font-weight="normal" fill="#000000">
+                        <tspan x="4" y="25">$</tspan>
+                    </text>
+                    <g id="Group-6" transform="translate(84.000000, 110.000000)">
+                        <g id="Oval">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#6DD400" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <g id="Group-3" transform="translate(11.000000, 11.000000)" fill="#FFFFFF">
+                            <rect id="Rectangle" x="4.5" y="0" width="3" height="12"></rect>
+                            <polygon id="Rectangle" transform="translate(6.000000, 6.000000) rotate(-270.000000) translate(-6.000000, -6.000000) " points="4.5 -1.35049305e-10 7.5 -1.35049305e-10 7.5 12 4.5 12"></polygon>
+                        </g>
+                    </g>
+                </g>
+                <text id="Drag-.csv-file-here" font-family="Typewriter_Condensed" font-size="24" font-style="condensed" font-weight="normal" fill="#000000">
+                    <tspan x="0" y="176">Drag .csv file here</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

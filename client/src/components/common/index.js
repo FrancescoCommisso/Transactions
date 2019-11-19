@@ -76,14 +76,18 @@ export const NavButton = styled.button`
 `;
 
 export const Widget = styled.div`
+  background-color: red;
   padding: 20px;
   flex-grow: 0;
-  align-items: stretch;
+  align-items: flex-start;
   flex-shrink: 0;
   flex-basis: 50%;
-  background-color: green;
 
   @media (max-width: 768px) {
     flex-basis: 100%;
+  }
+  @media (max-width: 350px) {
+    flex-basis: 100%;
+    padding: 15px;
   }
 `;

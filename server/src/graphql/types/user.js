@@ -9,8 +9,7 @@ module.exports = new GraphQLObjectType({
   name: "User",
   descriptions: "A user",
   fields: () => {
-    const { budgetType } = require("./");
-    const { paycheckType } = require("./");
+    const { budgetType, paycheckType, transactionType } = require("./");
 
     return {
       ...attributeFields(User),
@@ -21,6 +20,10 @@ module.exports = new GraphQLObjectType({
       budgets: {
         type: new GraphQLList(budgetType),
         resolve: resolver(User.Budget)
+      },
+      transactions: {
+        type: new GraphQLList(transactionType),
+        resolve: resolver(User.Transaction)
       }
     };
   }

@@ -47,13 +47,7 @@ const NavBar = () => {
           <NavLink to="/transactions">
             <NavButton>Transactions</NavButton>
           </NavLink>
-          <NavLink to="/budgets">
-            <NavButton>Budgets</NavButton>
-          </NavLink>
-          &nbsp;
-          <NavLink to="/profile">
-            <NavButton>Profile</NavButton>
-          </NavLink>
+
           <NavLink to="/">
             <NavButton onClick={() => logout()}>Log out</NavButton>
           </NavLink>

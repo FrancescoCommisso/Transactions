@@ -10,6 +10,7 @@ import { Login } from "./components/Login";
 import { Callback } from "./components/Callback";
 import { IntakeWizard } from "./components/intakeWizard";
 import { Dashboard } from "./components/dashboard";
+import { AddTransactions } from "./components/addTransactions.js";
 
 function App() {
   return (
@@ -26,9 +27,9 @@ function App() {
           ></PrivateRoute>
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/callback" component={Callback} />
-          <Route path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
           <Route path="/intake" component={IntakeWizard}></Route>
-          <PrivateRoute path="/add-paycheck" component={AddPaycheck} />
+          <Route path="/add-transactions" component={AddTransactions}></Route>
         </Switch>
       </BrowserRouter>
     </div>

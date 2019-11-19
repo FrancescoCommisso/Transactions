@@ -27,18 +27,18 @@ const LineDiv = styled.div`
 const Square = styled.div`
   width: 30px;
   height: 30px;
-  background-color: black;
   border-radius: 5px;
   margin-right: 20px;
+  background-color: ${({ color }) => color};
 `;
 
 const TransactionLine = ({ transaction }) => (
   <LineDiv>
-    <Square></Square>
+    <Square color={"blue"}></Square>
 
-    <LineItem>{`${transaction.vendor}:`}</LineItem>
-    <LineItem>{`$${transaction.amount}`}</LineItem>
-    <LineItem>{`${transaction.date}`}</LineItem>
+    <LineItem>{`${_.upperFirst(_.toLower(transaction.vendor))}:`}</LineItem>
+    <LineItem>{`$${_.upperFirst(_.toLower(transaction.amount))}`}</LineItem>
+    <LineItem>{transaction.date && `${transaction.date}`}</LineItem>
   </LineDiv>
 );
 

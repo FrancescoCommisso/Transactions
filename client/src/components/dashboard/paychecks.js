@@ -6,13 +6,12 @@ import _ from "lodash";
 const PaychecksDiv = styled(Widget)`
   text-align: left;
   padding: 50px;
-  flex-basis: 100%;
-  background-color: red;
+  flex-basis: 50%;
 `;
 
 const PaycheckLine = ({ paycheck }) => (
   <div>
-    <p>{`${paycheck.name}: ${paycheck.amount}`}</p>
+    <p>{`${paycheck.name} - $${paycheck.amount} `}</p>
   </div>
 );
 
