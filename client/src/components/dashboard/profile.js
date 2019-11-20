@@ -4,8 +4,6 @@ import { Widget } from "../common";
 import _ from "lodash";
 
 const ProfileDiv = styled(Widget)`
-  text-align: left;
-  padding: 50px;
   flex-basis: 100%;
 `;
 

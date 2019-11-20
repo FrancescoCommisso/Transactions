@@ -27,7 +27,7 @@ function App() {
           ></PrivateRoute>
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/callback" component={Callback} />
-          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/intake" component={IntakeWizard}></Route>
           <Route path="/add-transactions" component={AddTransactions}></Route>
         </Switch>

@@ -26,6 +26,14 @@ const AddButton = styled(SecondaryButton)`
   bottom: 50px;
   z-index: 100;
   color: ${({ color }) => color};
+  @media (max-width: 768px) {
+    right: 10px;
+    bottom: 10px;
+  }
+  @media (max-width: 400px) {
+    right: 5px;
+    bottom: 5px;
+  }
 `;
 
 export const Dashboard = () => {
@@ -63,15 +71,16 @@ export const Dashboard = () => {
     } = await client.query({
       query: GET_USER_BY_AUTH,
       variables: {
-        authId: user.sub
-        // authId: "auth0|5dd2052007ef470efc08cfb5"
+        // authId: user.sub
+        authId: "auth0|5dd396a87ff15e0efa63b6d3"
       }
     });
 
     setUserInfo(() => getUserByAuthId);
   };
 
-  // getUserInfo();
+  getUserInfo();
+
   return (
     <DashDiv>
       <Link to="/add-transactions">

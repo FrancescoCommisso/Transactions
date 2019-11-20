@@ -12,7 +12,7 @@ export const Login = () => {
   return (
     <div style={{ textAlign: "center", marginTop: "100px" }}>
       <div>
-        <img style={{ margin: "20px" }} src={logo}></img>
+        <img style={{ margin: "20px", width: "2600px" }} src={smallLogo}></img>
       </div>
       <div>We're not saying you're financially irresponsible... but ...</div>
     </div>

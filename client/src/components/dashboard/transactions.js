@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Widget } from "../common";
+import { Widget, WidgetTitle } from "../common";
 import _ from "lodash";
 
-const TransactionsDiv = styled(Widget)`
-  text-align: left;
-  padding: 50px;
-`;
+const TransactionsDiv = styled(Widget)``;
 
 const LineItem = styled.p`
   margin: 0px;
@@ -15,9 +12,10 @@ const LineItem = styled.p`
 `;
 
 const LineDiv = styled.div`
-  border-bottom: solid 1px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.5);
   padding-top: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  margin-left: 5px;
   display: flex;
   align-items: center;
   justify-content: left;
@@ -48,7 +46,7 @@ export const Transactions = ({ transactions }) => {
   if (loading) return <div></div>;
   return (
     <TransactionsDiv>
-      <h3>Transactions</h3>
+      <WidgetTitle>Transactions</WidgetTitle>
       <div></div>
       {transactions.slice(0, 4).map(b => (
         <TransactionLine transaction={b}></TransactionLine>

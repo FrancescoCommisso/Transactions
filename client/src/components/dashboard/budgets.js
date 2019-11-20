@@ -1,38 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Widget } from "../common";
+import { Widget, WidgetTitle, WidgetContent } from "../common";
 import _ from "lodash";
-
-import PieChart from "react-minimal-pie-chart";
+import { budgetColors } from "../common";
 import { Doughnut } from "react-chartjs-2";
-import { create } from "domain";
-
-const BudgetsDiv = styled(Widget)`
-  text-align: left;
-  justify-items: center;
-  padding: 50px;
-`;
-
-const LeftRighDiv = styled.div`
-  display: flex;
-`;
-const Legend = styled.div`
-  text-align: right;
-  flex-basis: 20%;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const StyledPChart = styled(PieChart)`
-  height: 300px;
-  @media (max-width: 768px) {
-    margin: auto;
-  }
-`;
 
 const createData = budgetData => {
   return {
@@ -40,8 +11,8 @@ const createData = budgetData => {
     datasets: [
       {
         data: budgetData.map((b, i) => b.cap),
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+        backgroundColor: budgetData.map((b, i) => budgetColors[i]),
+        hoverBackgroundColor: budgetData.map((b, i) => budgetColors[i])
       }
     ]
   };
@@ -52,16 +23,21 @@ export const Budgets = ({ budgets, paychecks }) => {
 
   if (loading) return <div></div>;
   return (
-    <BudgetsDiv>
-      <h3>Budgets</h3>
-      <LeftRighDiv>
+    <Widget>
+      <WidgetTitle>Budgets</WidgetTitle>
+      <WidgetContent style={{ alignContent: "center" }}>
         <Doughnut
           options={{
+            layout: { margin: 100 },
             legend: {
               display: true,
-              position: "bottom",
+
+              position: "top",
+              margin: 10,
+
               labels: {
-                fontColor: "rgb(255, 99, 132)"
+                padding: 20,
+                fontColor: "black"
               }
             },
             cutoutPercentage: 80
@@ -69,7 +45,7 @@ export const Budgets = ({ budgets, paychecks }) => {
           borderWidth={1}
           data={createData(budgets)}
         />
-      </LeftRighDiv>
-    </BudgetsDiv>
+      </WidgetContent>
+    </Widget>
   );
 };

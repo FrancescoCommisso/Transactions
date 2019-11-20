@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Widget } from "../common";
+import { Widget, WidgetTitle } from "../common";
 import _ from "lodash";
 
-const PaychecksDiv = styled(Widget)`
-  text-align: left;
-  padding: 50px;
-  flex-basis: 50%;
-`;
+const PaychecksDiv = styled(Widget)``;
 
 const PaycheckLine = ({ paycheck }) => (
   <div>
@@ -21,7 +17,7 @@ export const Paychecks = ({ paychecks }) => {
   if (loading) return <div></div>;
   return (
     <PaychecksDiv>
-      <h3>Paychecks</h3>
+      <WidgetTitle>Paychecks</WidgetTitle>
       {paychecks.map(b => (
         <PaycheckLine paycheck={b}></PaycheckLine>
       ))}
