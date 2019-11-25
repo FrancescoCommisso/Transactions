@@ -44,17 +44,19 @@ export const Dashboard = () => {
     window.onresize = function() {
       window.location.reload();
     };
+
     return () => {
       window.onresize = null;
     };
-  }, []);
+  });
 
   useEffect(() => {
+    console.log("user changed", user);
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
 
-    if (user && user.sub && !userInfo)
+    if (user && user.sub)
       try {
         getUserInfo();
       } catch (e) {
@@ -86,20 +88,17 @@ export const Dashboard = () => {
         <AddButton>Add Transactions</AddButton>
       </Link>
 
-      {/* {userInfo && <Profile userInfo={userInfo}></Profile>} */}
       {userInfo && (
-        <BudgetPeriods
-          budgets={userInfo.budgets}
-          transactions={[{ vendor: "arti", amount: 25 }]}
-        ></BudgetPeriods>
+        <>
+          <BudgetPeriods
+            budgets={userInfo.budgets}
+            transactions={[{ vendor: "arti", amount: 25 }]}
+          ></BudgetPeriods>
+          <Budgets budgets={userInfo.budgets}></Budgets>
+          <Transactions transactions={userInfo.transactions}></Transactions>
+          <Paychecks paychecks={userInfo.paychecks}></Paychecks>
+        </>
       )}
-      {userInfo && <Budgets budgets={userInfo.budgets}></Budgets>}
-
-      {userInfo && (
-        <Transactions transactions={userInfo.transactions}></Transactions>
-      )}
-
-      {userInfo && <Paychecks paychecks={userInfo.paychecks}></Paychecks>}
     </DashDiv>
   );
 };

@@ -1,17 +1,11 @@
-html {
-  font-family: "Alata", sans-serif;
-}
-h1 {
-  font-family: "Alata", sans-serif;
-}
 body {
-  margin: 0;
-
-  font-family: "Alata", sans-serif;
+  margin: 100px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+p {
+  font-family: alata !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New";
 }

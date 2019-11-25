@@ -134,6 +134,8 @@ export const Widget = styled.div`
 `;
 
 export const P = styled.p`
+  font-family: alata;
+
   @media (max-width: ${screens.onlyPhones}) {
     font-size: 16px;
   }
@@ -150,26 +152,20 @@ export const P = styled.p`
 `;
 
 export const H1 = styled.h1`
-  color: blue;
-  font-size: 64px;
+  font-family: alata;
+  font-weight: 100;
   @media (max-width: ${screens.onlyPhones}) {
-    color: red;
-
     font-size: 42px;
+  }
+  @media (min-width: ${screens.desktop}) {
+    font-size: 52px;
   }
 
   @media (min-width: ${screens.landscapeTablets}) {
-    color: green;
-
     font-size: 64px;
   }
-  @media (min-width: ${screens.desktop}) {
-    color: blue;
 
-    font-size: 64px;
-  }
   @media (min-width: ${screens.bigDesktop}) {
-    color: purple;
     font-size: 72px;
   }
 `;
@@ -192,7 +188,7 @@ export const H3 = styled.h3`
 
 export const CenterPage = styled.div`
   display: flex;
-  height: 70vh;
+  min-height: 90vh;
   align-items: center;
   flex-directon: column;
 `;

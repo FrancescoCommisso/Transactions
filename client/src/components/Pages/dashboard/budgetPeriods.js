@@ -19,9 +19,7 @@ const createData = budgets => {
     datasets: [
       {
         label: "Actual Spending",
-        backgroundColor: budgets.map((b, i) =>
-          budgetColors[i].replace("1)", "0.2)")
-        ),
+        backgroundColor: budgets.map((b, i) => budgetColors[i]),
         borderColor: "rgba(255,99,132,1)",
         borderWidth: 0,
         hoverBackgroundColor: budgets.map((b, i) => budgetColors[i]),
@@ -30,10 +28,14 @@ const createData = budgets => {
       },
       {
         label: "Goal",
-        backgroundColor: budgets.map((b, i) => budgetColors[i]),
+        backgroundColor: budgets.map((b, i) =>
+          budgetColors[i].replace("1)", "0.2)")
+        ),
         borderColor: "rgba(255,99,132,1)",
         borderWidth: 0,
-        hoverBackgroundColor: budgets.map((b, i) => budgetColors[i]),
+        hoverBackgroundColor: budgets.map((b, i) =>
+          budgetColors[i].replace("1)", "0.2)")
+        ),
         hoverBorderColor: "rgba(255,99,132,1)",
         data: budgets.map(b => Number.parseInt(b.cap))
       }
@@ -49,35 +51,58 @@ export const BudgetPeriods = ({ budgets, transactions }) => {
     <Widget>
       <WidgetTitle>Budget Periods</WidgetTitle>
 
-      <WidgetContent>
-        <Bar
-          data={createData(budgets)}
-          width={3}
-          height={2}
-          options={{
-            maintainAspectRatio: true,
-            scales: {
-              xAxes: [
-                {
-                  ticks: { display: false },
-                  gridLines: {
-                    display: false,
-                    drawBorder: false
-                  }
-                }
-              ],
-              yAxes: [
-                {
-                  ticks: { display: false },
-                  gridLines: {
-                    display: false,
-                    drawBorder: false
-                  }
-                }
-              ]
-            }
+      <WidgetContent
+        style={{
+          display: "flex",
+          height: "100%"
+        }}
+      >
+        <div
+          style={{
+            margin: "auto",
+            width: "100%"
           }}
-        />
+        >
+          <Bar
+            data={createData(budgets)}
+            width={3}
+            height={2}
+            options={{
+              legend: {
+                display: false,
+                position: "top",
+                padding: 100,
+                labels: {
+                  fontColor: "black"
+                }
+              },
+              cutoutPercentage: 80,
+              maintainAspectRatio: true,
+              scales: {
+                xAxes: [
+                  {
+                    stacked: true,
+                    ticks: { display: false },
+                    gridLines: {
+                      display: false,
+                      drawBorder: false
+                    }
+                  }
+                ],
+                yAxes: [
+                  {
+                    stacked: true,
+                    ticks: { display: false },
+                    gridLines: {
+                      display: false,
+                      drawBorder: false
+                    }
+                  }
+                ]
+              }
+            }}
+          />
+        </div>
       </WidgetContent>
     </Widget>
   );

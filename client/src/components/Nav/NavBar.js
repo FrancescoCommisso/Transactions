@@ -14,10 +14,13 @@ const NavDiv = styled.div`
   justify-content: flex-end;
   width: 100%;
   align-items: center;
+  background-color: white;
+  height: 15vh;
 `;
 
 const StyledDropDownItem = styled(Dropdown.Item)`
   text-align: left !important;
+  font-family: alata !important;
 `;
 
 const NavBar = () => {
@@ -50,8 +53,10 @@ const NavBar = () => {
       <img
         style={{
           display: "block",
-          marginRight: "auto",
-          padding: "10px"
+          marginRight: "auto ",
+          width: "10vw",
+          minWidth: "100px",
+          padding: "20px"
         }}
         src={smallLogo}
       ></img>
@@ -63,7 +68,10 @@ const NavBar = () => {
             button
             large
             button
-            style={{ backgroundColor: "white" }}
+            style={{
+              backgroundColor: "white",
+              fontFamily: "alata !important"
+            }}
             text={displayName}
           >
             <Dropdown.Menu

@@ -13,6 +13,7 @@ import { AddTransactions } from "./components/Pages/addTransactions.js";
 import { Home } from "./components/home";
 import { Logout } from "./components/logout";
 import "./App.css";
+import GoogleFontLoader from "react-google-font-loader";
 
 function App() {
   return (
@@ -24,7 +25,6 @@ function App() {
             weights: [400, "400i"]
           }
         ]}
-        subsets={["cyrillic-ext", "greek"]}
       />
       <BrowserRouter>
         <header>

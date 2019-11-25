@@ -1,36 +1,58 @@
 import React, { Component, useEffect } from "react";
 import logo from "../assets/logo.svg";
-import { CenterPage, CenterDiv, H1, H3 } from "./common";
+import {
+  CenterPage,
+  CenterDiv,
+  H1,
+  H3,
+  P,
+  colors,
+  WidgetComponent
+} from "./common";
 import styled from "styled-components";
 import ring from "../assets/ring.svg";
 import homering from "../assets/homering.svg";
-import snake from "../assets/snake.svg";
+import newlogo from "../assets/newlogo.svg";
+
+const p = colors.primary;
 
 export const Home = () => {
   return (
-    <CenterPage
-      style={
-        {
-          // justifyContent: "flex-start",
-          // backgroundImage: `url(${homering})`,
-          // backgroundRepeat: "repeat-y"
-        }
-      }
-    >
-      <CenterDiv>
-        <H1>p a y c h u n k</H1>
-        <H3>A paycheck-based budgetting system that kinda works</H3>
-      </CenterDiv>
-      <img
+    <div>
+      <CenterPage
         style={{
-          position: "fixed",
-          right: "0",
-          zIndex: "-1",
-          width: "50%",
-          minWidth: "400px"
+          backgroundColor: p,
+          flexWrap: "wrap",
+          flexDirection: "column"
         }}
-        src={homering}
-      ></img>
-    </CenterPage>
+      >
+        <CenterDiv>
+          <img style={{ width: "90vw", maxWidth: "800px" }} src={newlogo}></img>
+        </CenterDiv>
+        <div style={{ paddingBottom: "80px", color: "white" }}>
+          <P>Scroll to learn how it works</P>
+        </div>
+      </CenterPage>
+      <CenterPage style={{ flexWrap: "wrap" }}>
+        <CenterDiv>
+          <WidgetComponent title="Add your sources of income"></WidgetComponent>
+        </CenterDiv>
+      </CenterPage>
+      <CenterPage>
+        <CenterDiv>
+          <WidgetComponent title="Create your budgets"></WidgetComponent>
+        </CenterDiv>
+      </CenterPage>
+      <CenterPage>
+        <CenterDiv>
+          <WidgetComponent title="Create a budget period"></WidgetComponent>
+        </CenterDiv>
+      </CenterPage>
+      <CenterPage>
+        <CenterDiv>
+          <WidgetComponent title="Add transactions once every budget period"></WidgetComponent>
+        </CenterDiv>
+      </CenterPage>
+    </div>
   );
 };

@@ -93,7 +93,7 @@ export const AddTransactions = () => {
 
   return (
     <CenterPage>
-      <CenterDiv style={{ width: "80vw" }}>
+      <CenterDiv style={{ width: "80vw", marginTop: "0" }}>
         <WidgetComponent
           title={"Add Transactions"}
           content={Content()}
