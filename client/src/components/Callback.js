@@ -32,7 +32,7 @@ export const Callback = () => {
 
   if (newUser) return <Redirect to={"/intake"}> </Redirect>;
 
-  if (!first) return <Redirect to={"/profile"}> </Redirect>;
+  if (!first) return <Redirect to={"/dashboard"}> </Redirect>;
 
   return <div></div>;
 };

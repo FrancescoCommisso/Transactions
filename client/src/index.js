@@ -10,6 +10,14 @@ import "semantic-ui-css/semantic.min.css";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 
+import WebFont from "webfontloader";
+
+WebFont.load({
+  google: {
+    families: ["Alata", "sans-serif"]
+  }
+});
+
 const onRedirectCallback = appState => {
   window.history.replaceState(
     {},
@@ -30,7 +38,6 @@ ReactDOM.render(
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>
-    ,
   </Auth0Provider>,
   document.getElementById("root")
 );

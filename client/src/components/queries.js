@@ -21,6 +21,15 @@ export const GET_USER_BY_EMAIL = gql`
   }
 `;
 
+export const CREATE_TRANSACTIONS = gql`
+  mutation createTransactions(
+    $transactions: [TransactionInput]!
+    $userId: String!
+  ) {
+    createTransactions(transactions: $transactions, userId: $userId)
+  }
+`;
+
 export const GET_USER_BY_ID = gql`
   query getUserByUserId($userId: String!) {
     getUserByUserId(userId: $userId) {
@@ -34,6 +43,13 @@ export const GET_USER_BY_ID = gql`
         name
         cap
         userId
+      }
+      transactions {
+        vendor
+        amount
+        date
+        group
+        budgetId
       }
       paychecks {
         amount
@@ -57,6 +73,13 @@ export const GET_USER_BY_AUTH = gql`
         name
         cap
         userId
+      }
+      transactions {
+        vendor
+        amount
+        date
+        group
+        budgetId
       }
       paychecks {
         amount

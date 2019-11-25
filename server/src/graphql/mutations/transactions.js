@@ -1,5 +1,11 @@
-const { GraphQLString, GraphQLNonNull, GraphQLBoolean } = require("graphql");
+const {
+  GraphQLString,
+  GraphQLList,
+  GraphQLNonNull,
+  GraphQLBoolean
+} = require("graphql");
 const { transactionType } = require("../types");
+const { TransactionInput } = require("../inputs");
 const { resolver } = require("graphql-sequelize");
 
 module.exports = () => ({
@@ -27,6 +33,49 @@ module.exports = () => ({
         });
         await transaction.commit();
         return newTransaction;
+      } catch (e) {
+        if (transaction) await transaction.rollback();
+        console.error("Error creating transaction: ", e);
+        return null;
+      }
+    }
+  },
+  createTransactions: {
+    type: GraphQLBoolean,
+    args: {
+      transactions: { type: new GraphQLList(TransactionInput) },
+      userId: { type: GraphQLString }
+    },
+    resolve: async (
+      root,
+      { transactions, userId },
+      { services, services: { transactionService, unitOfWorkService } }
+    ) => {
+      let transaction;
+
+      // const testTransaction = {
+      //   vendor: "Bestbuy",
+      //   amount: "200.00",
+      //   date: "01/01/2020"
+      // };
+
+      // const testTransaction1 = {
+      //   vendor: "Bestbuy",
+      //   amount: "200.00",
+      //   date: "01/01/2020"
+      // };
+      // transactions = [testTransaction, testTransaction1];
+      // userId = "d3ac6d79-906d-4c05-9661-5e7bcd3117d2"; // remove me
+
+      transactions = transactions.map(transaction => {
+        return { ...transaction, userId };
+      });
+
+      try {
+        transaction = await unitOfWorkService.transaction();
+        await transactionService.newTransactions(transactions, transaction);
+        await transaction.commit();
+        return true;
       } catch (e) {
         if (transaction) await transaction.rollback();
         console.error("Error creating transaction: ", e);

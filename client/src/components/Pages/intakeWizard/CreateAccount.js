@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { Input } from "semantic-ui-react";
 import styled from "styled-components";
-import { SecondaryButton, Wrapper } from "../common";
+import { SecondaryButton, Wrapper } from "../../common";
 import { Title } from "./styles";
 
 const StyledInput = styled(Input)`
-  padding-top: 15px;
+  margin-top: 10px;
 `;
 
 export const CreateAccount = ({ nextStep, addPersonalInfo }) => {
   const [values, setValues] = useState({});
 
   const handleChange = async ({ target: { name, value } }) => {
-    await setValues({ ...values, [name]: value });
+    setValues({ ...values, [name]: value });
   };
 
   return (
@@ -42,7 +42,7 @@ export const CreateAccount = ({ nextStep, addPersonalInfo }) => {
           onChange={handleChange}
           name="dateOfBirth"
           fluid
-          placeholder={"Date of birth"}
+          placeholder={"Date of birth (dd/mm/yyyy"}
         ></StyledInput>
         <StyledInput
           onChange={handleChange}

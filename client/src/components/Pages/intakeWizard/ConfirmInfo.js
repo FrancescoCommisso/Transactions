@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Wrapper, SecondaryButton } from "../common";
+import { Wrapper, SecondaryButton } from "../../common";
 import styled from "styled-components";
 import _ from "lodash";
-import client from "../../graphql";
-import { INIT_USER } from "../queries";
-import { useAuth0 } from "../../react-auth0-spa";
+import client from "../../../graphql";
+import { INIT_USER } from "../../queries";
+import { useAuth0 } from "../../../react-auth0-spa";
 import { Redirect } from "react-router-dom";
 
 const ConfimTitle = styled.div`
@@ -21,13 +21,13 @@ export const ConfirmInfo = ({
 
   useEffect(() => {
     console.log(initializeUser);
-    if (initializeUser === true) console.message("User created!");
-    if (initializeUser === false) console.message("Error creating user!");
+    if (initializeUser === true) console.log("User created!");
+    if (initializeUser === false) console.log("Error creating user!");
 
     return () => {};
   }, [initializeUser]);
 
-  if (initializeUser) return <Redirect to={"/profile"}> </Redirect>;
+  if (initializeUser) return <Redirect to={"/dashboard"}> </Redirect>;
 
   return (
     <Wrapper style={{ textAlign: "left" }}>

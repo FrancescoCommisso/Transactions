@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { SecondaryButton, Wrapper } from "../common";
+import { SecondaryButton, Wrapper } from "../../common";
 import { Title } from "./styles";
 import { Input, Button } from "semantic-ui-react";
 

@@ -5,6 +5,7 @@ import StepWizard from "react-step-wizard";
 import { CreatePaychecks } from "./CreatePaychecks";
 import { CreateBudgets } from "./CreateBudgets";
 import { ConfirmInfo } from "./ConfirmInfo";
+import { Welcome } from "./Welcome";
 
 export const IntakeWizard = () => {
   const [personalInfo, setPersonalInfo] = useState({});
@@ -23,6 +24,7 @@ export const IntakeWizard = () => {
 
   return (
     <StepWizard>
+      {/* <Welcome></Welcome> */}
       <CreateAccount addPersonalInfo={handlePersonalInfo}></CreateAccount>
       <CreatePaychecks addPaymentInfo={handlePaymentInfo}></CreatePaychecks>
       <CreateBudgets addBudgets={handleBudgets}></CreateBudgets>

@@ -6,6 +6,7 @@ const budget = (sequelize, { UUID, STRING, UUIDV4 }) => {
       allowNull: false,
       defaultValue: UUIDV4
     },
+    color: STRING,
     name: STRING,
     cap: STRING
   });

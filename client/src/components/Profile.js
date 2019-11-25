@@ -28,8 +28,8 @@ const Profile = () => {
   const getUserInfo = async () => {
     const {
       data: { getUserByAuthId }
-    } = await client.mutate({
-      mutation: GET_USER_BY_AUTH,
+    } = await client.query({
+      query: GET_USER_BY_AUTH,
       variables: {
         authId: user.sub
       }
