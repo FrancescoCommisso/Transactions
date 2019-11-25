@@ -33,6 +33,10 @@ h1 {
   font-family: alata !important;
 }
 
+li {
+  font-family: alata !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
