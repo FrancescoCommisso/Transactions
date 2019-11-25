@@ -1,7 +1,16 @@
 import styled from "styled-components";
+import { Loader } from "./loader";
+import React from "react";
 
 export const colors = {
-  primary: "#01BBD3"
+  primary: "#A4D9FF"
+};
+
+export const screens = {
+  onlyPhones: "599px",
+  landscapeTablets: "900px",
+  desktop: "1200px",
+  bigDesktop: "1800px"
 };
 
 export const budgetColors = [
@@ -96,9 +105,14 @@ export const WidgetTitle = styled.h3`
   text-align: left;
 `;
 
-export const WidgetContent = styled.div`
-  flex-basis: 80%;
-`;
+export const WidgetComponent = ({ title, content }) => (
+  <Widget>
+    <WidgetTitle>{title}</WidgetTitle>
+    <WidgetContent>{content}</WidgetContent>
+  </Widget>
+);
+
+export const WidgetContent = styled.div``;
 
 export const Widget = styled.div`
   padding: 25px;
@@ -107,8 +121,8 @@ export const Widget = styled.div`
   align-items: stretch;
   flex-direction: column;
   display: flex;
-
-  flex-basis: 50%;
+  min-height: 400px;
+  flex-basis: 49%;
 
   @media (max-width: 768px) {
     flex-basis: 100%;
@@ -117,4 +131,72 @@ export const Widget = styled.div`
     flex-basis: 100%;
     padding: 15px;
   }
+`;
+
+export const P = styled.p`
+  @media (max-width: ${screens.onlyPhones}) {
+    font-size: 16px;
+  }
+
+  @media (min-width: ${screens.landscapeTablets}) {
+    font-size: 18px;
+  }
+  @media (min-width: ${screens.desktop}) {
+    font-size: 16px;
+  }
+  @media (min-width: ${screens.bigDesktop}) {
+    font-size: 20px;
+  }
+`;
+
+export const H1 = styled.h1`
+  color: blue;
+  font-size: 64px;
+  @media (max-width: ${screens.onlyPhones}) {
+    color: red;
+
+    font-size: 42px;
+  }
+
+  @media (min-width: ${screens.landscapeTablets}) {
+    color: green;
+
+    font-size: 64px;
+  }
+  @media (min-width: ${screens.desktop}) {
+    color: blue;
+
+    font-size: 64px;
+  }
+  @media (min-width: ${screens.bigDesktop}) {
+    color: purple;
+    font-size: 72px;
+  }
+`;
+
+export const H3 = styled.h3`
+  @media (max-width: ${screens.onlyPhones}) {
+    font-size: 18px;
+  }
+
+  @media (min-width: ${screens.landscapeTablets}) {
+    font-size: 24px;
+  }
+  @media (min-width: ${screens.desktop}) {
+    font-size: 24px;
+  }
+  @media (min-width: ${screens.bigDesktop}) {
+    font-size: 72px;
+  }
+`;
+
+export const CenterPage = styled.div`
+  display: flex;
+  height: 70vh;
+  align-items: center;
+  flex-directon: column;
+`;
+
+export const CenterDiv = styled.div`
+  margin: auto;
 `;

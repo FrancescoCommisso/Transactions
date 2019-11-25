@@ -10,6 +10,15 @@ import "semantic-ui-css/semantic.min.css";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 
+import WebFont from "webfontloader";
+console.log("loading fonts");
+
+WebFont.load({
+  google: {
+    families: ["Alata", "sans-serif"]
+  }
+});
+console.log("Wf", WebFont);
 const onRedirectCallback = appState => {
   window.history.replaceState(
     {},

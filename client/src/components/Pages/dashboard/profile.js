@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Widget } from "../common";
+import { Widget } from "../../common";
 import _ from "lodash";
 
 const ProfileDiv = styled(Widget)`

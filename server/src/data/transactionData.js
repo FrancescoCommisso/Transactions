@@ -14,6 +14,10 @@ class TransactionData {
     );
   }
 
+  async newTransactions(transactions, transaction) {
+    return this.model.Transaction.bulkCreate(transactions, { transaction });
+  }
+
   async updateTransactionByTransactionId(
     updateFields,
     transactionId,

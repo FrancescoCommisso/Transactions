@@ -20,4 +20,14 @@ const PaycheckInput = new GraphQLInputObjectType({
   }
 });
 
-module.exports = { BudgetInput, PaycheckInput };
+const TransactionInput = new GraphQLInputObjectType({
+  name: "TransactionInput",
+  fields: {
+    vendor: { type: new GraphQLNonNull(GraphQLString) },
+    amount: { type: new GraphQLNonNull(GraphQLString) },
+    date: { type: GraphQLString },
+    group: { type: GraphQLString }
+  }
+});
+
+module.exports = { BudgetInput, PaycheckInput, TransactionInput };

@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { SecondaryButton, Wrapper } from "../common";
+import { SecondaryButton, Wrapper } from "../../common";
 import { Title } from "./styles";
 import { Input, Button } from "semantic-ui-react";
+import InputMask from "react-input-mask";
+
+const MoneyInput = props => {
+  return <InputMask {...props} mask="\$ 999\.00" maskChar="" />;
+};
 
 const ButtonWrapper = styled.span`
   margin: 20px;
@@ -30,7 +35,6 @@ const BudgetLine = ({ handleChange, index, deleteBudget, nameVal, capVal }) => {
       <Input
         style={{ width: "100%" }}
         placeholder="How much you want to spend on this budget"
-        type="number"
         onChange={handleChange}
         id={index}
         value={capVal}

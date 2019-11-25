@@ -21,6 +21,15 @@ export const GET_USER_BY_EMAIL = gql`
   }
 `;
 
+export const CREATE_TRANSACTIONS = gql`
+  mutation createTransactions(
+    $transactions: [TransactionInput]!
+    $userId: String!
+  ) {
+    createTransactions(transactions: $transactions, userId: $userId)
+  }
+`;
+
 export const GET_USER_BY_ID = gql`
   query getUserByUserId($userId: String!) {
     getUserByUserId(userId: $userId) {

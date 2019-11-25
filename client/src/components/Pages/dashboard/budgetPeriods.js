@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Widget, SecondaryButton, WidgetTitle, WidgetContent } from "../common";
+import {
+  Widget,
+  SecondaryButton,
+  WidgetTitle,
+  WidgetContent
+} from "../../common";
 import _ from "lodash";
 import { Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
-import { budgetColors } from "../common";
+import { budgetColors } from "../../common";
 const BudgetPeriodsDiv = styled(Widget)``;
 
 const createData = budgets => {

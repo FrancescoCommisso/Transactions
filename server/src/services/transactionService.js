@@ -7,6 +7,9 @@ class TransactionService {
   async newTransaction(args, transaction) {
     return this.transactionData.newTransaction(args, transaction);
   }
+  async newTransactions(transactions, transaction) {
+    return this.transactionData.newTransactions(transactions, transaction);
+  }
   async updateTransactionByTransactionId(
     updateFields,
     transactionId,

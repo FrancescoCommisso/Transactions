@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Profile } from "./profile";
 import styled from "styled-components";
-import { useAuth0 } from "../../react-auth0-spa";
-import client from "../../graphql";
-import { GET_USER_BY_AUTH } from "../queries";
+import { useAuth0 } from "../../../react-auth0-spa";
+import client from "../../../graphql";
+import { GET_USER_BY_AUTH } from "../../queries";
 import { Budgets } from "./budgets";
 import { Paychecks } from "./paychecks";
 import { Transactions } from "./transactions";
@@ -11,13 +11,12 @@ import { BudgetPeriods } from "./budgetPeriods";
 import { Button } from "semantic-ui-react";
 
 import { Link } from "react-router-dom";
-import { SecondaryButton } from "../common";
+import { SecondaryButton } from "../../common";
 
 const DashDiv = styled.div`
   display: flex;
   flex-flow: row wrap;
-
-  justify-content: flex-start;
+  justify-content: space-around;
 `;
 
 const AddButton = styled(SecondaryButton)`
@@ -53,7 +52,7 @@ export const Dashboard = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 2000);
 
     if (user && user.sub && !userInfo)
       try {
@@ -71,15 +70,15 @@ export const Dashboard = () => {
     } = await client.query({
       query: GET_USER_BY_AUTH,
       variables: {
-        // authId: user.sub
-        authId: "auth0|5dd396a87ff15e0efa63b6d3"
+        authId: user.sub
+        // authId: "auth0|5dd396a87ff15e0efa63b6d3"
       }
     });
 
     setUserInfo(() => getUserByAuthId);
   };
 
-  getUserInfo();
+  // getUserInfo();
 
   return (
     <DashDiv>

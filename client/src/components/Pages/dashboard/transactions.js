@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Widget, WidgetTitle } from "../common";
+import { Widget, WidgetTitle } from "../../common";
 import _ from "lodash";
 
 const TransactionsDiv = styled(Widget)``;
@@ -25,7 +25,6 @@ const LineDiv = styled.div`
 const Square = styled.div`
   width: 30px;
   height: 30px;
-  border-radius: 5px;
   margin-right: 20px;
   background-color: ${({ color }) => color};
 `;
@@ -36,7 +35,7 @@ const TransactionLine = ({ transaction }) => (
 
     <LineItem>{`${_.upperFirst(_.toLower(transaction.vendor))}:`}</LineItem>
     <LineItem>{`$${_.upperFirst(_.toLower(transaction.amount))}`}</LineItem>
-    <LineItem>{transaction.date && `${transaction.date}`}</LineItem>
+    <LineItem>{transaction.date && `${transaction.date} `}</LineItem>
   </LineDiv>
 );
 
@@ -47,10 +46,12 @@ export const Transactions = ({ transactions }) => {
   return (
     <TransactionsDiv>
       <WidgetTitle>Transactions</WidgetTitle>
-      <div></div>
-      {transactions.slice(0, 4).map(b => (
-        <TransactionLine transaction={b}></TransactionLine>
-      ))}
+
+      <div style={{ maxHeight: "400px", overflow: "auto" }}>
+        {transactions.map((b, i) => (
+          <TransactionLine key={i} transaction={b}></TransactionLine>
+        ))}
+      </div>
     </TransactionsDiv>
   );
 };
