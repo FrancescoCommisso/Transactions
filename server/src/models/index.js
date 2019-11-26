@@ -1,13 +1,27 @@
 const Sequelize = require("sequelize");
+const x = {};
+const {
+  DATABASE = "postgres",
+  DATABASE_HOST = "transactions-staging-db.crrzpkj28irq.us-east-2.rds.amazonaws.com",
+  DATABASE_USER = "postgres",
+  DATABASE_PASSWORD = "chowchiTS69",
+  DATABASE_PORT = 5432
+} = process.env;
 
-const sequelize = new Sequelize(
-  process.env.DATABASE,
-  process.env.DATABASE_USER,
-  process.env.DATABASE_PASSWORD,
-  {
-    dialect: "postgres"
-  }
-);
+console.log("Db", {
+  DATABASE,
+  DATABASE_HOST,
+  DATABASE_USER,
+  DATABASE_PASSWORD,
+  DATABASE_PORT
+});
+
+const sequelize = new Sequelize(DATABASE, DATABASE_USER, DATABASE_PASSWORD, {
+  host: DATABASE_HOST,
+  port: DATABASE_PORT,
+  dialect: "postgres"
+});
+
 const models = {
   Transaction: sequelize.import("./transaction"),
   User: sequelize.import("./user"),

@@ -1,8 +1,8 @@
-// src/react-auth0-spa.js
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
 import client from "./graphql";
 import { GET_USER_BY_AUTH0_ID } from "./components/queries";
+const { REDIRECT_URL = "http://localhost:3000/callback" } = process.env;
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
@@ -11,7 +11,7 @@ export const Auth0Context = React.createContext();
 export const useAuth0 = () => useContext(Auth0Context);
 export const Auth0Provider = ({
   children,
-  onRedirectCallback = "http://localhost:3000/callback",
+  onRedirectCallback = REDIRECT_URL,
   ...initOptions
 }) => {
   const [isAuthenticated, setIsAuthenticated] = useState();

@@ -3,10 +3,10 @@ import { createHttpLink } from "apollo-link-http";
 import { setContext } from "apollo-link-context";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import Cookies from "js-cookie";
-// import { ROOT_URL, API_VERSION } from "../imports/config";
+const { API_DOMAIN = "http://localhost:5000" } = process.env;
 
 const httpLink = createHttpLink({
-  uri: `${"http://localhost:5000"}/${"v1"}/graphql`
+  uri: `${API_DOMAIN}/graphql`
 });
 
 const authLink = setContext((_, { headers }) => {

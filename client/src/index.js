@@ -4,13 +4,12 @@ import "./index.css";
 import { ApolloProvider } from "react-apollo";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import ApolloClient from "apollo-boost";
 import client from "./graphql";
 import "semantic-ui-css/semantic.min.css";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
-
 import WebFont from "webfontloader";
+const { REDIRECT_URL = "http://localhost:3000/callback" } = process.env;
 
 WebFont.load({
   google: {
@@ -32,7 +31,7 @@ ReactDOM.render(
   <Auth0Provider
     domain={config.domain}
     client_id={config.clientId}
-    redirect_uri={"http://localhost:3000/callback"}
+    redirect_uri={REDIRECT_URL}
     onRedirectCallback={onRedirectCallback}
   >
     <ApolloProvider client={client}>
