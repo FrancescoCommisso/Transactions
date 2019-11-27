@@ -53,8 +53,13 @@ export const Home = () => {
         </CenterDiv>
       </CenterPage>
       <CenterPage>
-        <CenterDiv style={{ marginTop: "5%" }}>
-          <WidgetComponent title="Create your budgets"></WidgetComponent>
+        <CenterDiv
+          style={{
+            marginTop: "5%",
+            flexBasis: "80%"
+          }}
+        >
+          <WidgetComponent title="Create your budgets "></WidgetComponent>
         </CenterDiv>
       </CenterPage>
       <CenterPage>

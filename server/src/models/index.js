@@ -2,19 +2,11 @@ const Sequelize = require("sequelize");
 const x = {};
 const {
   DATABASE = "postgres",
-  DATABASE_HOST = "transactions-staging-db.crrzpkj28irq.us-east-2.rds.amazonaws.com",
-  DATABASE_USER = "postgres",
-  DATABASE_PASSWORD = "chowchiTS69",
+  DATABASE_HOST = "localhost",
+  DATABASE_USER = "admin",
+  DATABASE_PASSWORD = "password",
   DATABASE_PORT = 5432
 } = process.env;
-
-console.log("Db", {
-  DATABASE,
-  DATABASE_HOST,
-  DATABASE_USER,
-  DATABASE_PASSWORD,
-  DATABASE_PORT
-});
 
 const sequelize = new Sequelize(DATABASE, DATABASE_USER, DATABASE_PASSWORD, {
   host: DATABASE_HOST,

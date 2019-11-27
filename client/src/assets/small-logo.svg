@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="538px" height="428px" viewBox="0 0 538 428" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="534px" height="428px" viewBox="0 0 534 428" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
     <title>Group 42</title>
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop" transform="translate(-224.000000, -253.000000)" stroke="#7AC7FF">
+        <g id="Desktop" transform="translate(-225.000000, -253.000000)">
             <g id="Group-42" transform="translate(218.000000, 288.000000)">
-                <g id="Group-3" opacity="0.285458519" transform="translate(93.000000, 0.000000)" stroke-dasharray="31,44" stroke-width="69">
+                <g id="Group-3" opacity="0.285458519" transform="translate(93.000000, 0.000000)" stroke="#1A9FFF" stroke-dasharray="31,44" stroke-width="69">
                     <g id="Donut-3">
                         <g id="Oval-2">
                             <path d="M179,358 C277.85897,358 358,277.85897 358,179 C358,80.1410298 277.85897,-5.68434189e-14 179,-5.68434189e-14 C80.1410298,-5.68434189e-14 -5.68434189e-14,80.1410298 -5.68434189e-14,179 C-5.68434189e-14,277.85897 80.1410298,358 179,358 Z" id="Oval"></path>
                         </g>
                     </g>
                 </g>
-                <text id="P-a-y-c-h-u-n-k" fill="#7AC7FF" font-family="Alata-Regular, Alata" font-size="90" font-weight="normal">
+                <text id="P-a-y-c-h-u-n-k" fill="#1A9FFF" font-family="Alata-Regular, Alata" font-size="90" font-weight="normal">
                     <tspan x="0" y="216">P a y c h u n k</tspan>
                 </text>
             </g>

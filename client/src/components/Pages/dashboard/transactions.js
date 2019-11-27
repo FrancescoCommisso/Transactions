@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Widget, WidgetTitle } from "../../common";
+import { Widget, WidgetTitle, WidgetContent } from "../../common";
 import _ from "lodash";
-
-const TransactionsDiv = styled(Widget)``;
 
 const LineItem = styled.p`
   margin: 0px;
@@ -44,14 +42,20 @@ export const Transactions = ({ transactions }) => {
 
   if (loading) return <div></div>;
   return (
-    <TransactionsDiv>
+    <Widget>
       <WidgetTitle>Transactions</WidgetTitle>
 
-      <div style={{ maxHeight: "400px", overflow: "auto" }}>
-        {transactions.map((b, i) => (
-          <TransactionLine key={i} transaction={b}></TransactionLine>
-        ))}
-      </div>
-    </TransactionsDiv>
+      <WidgetContent
+        style={{ backgroundColor: "red", maxHeight: "400px", overflow: "auto" }}
+      >
+        {transactions.length > 0 ? (
+          transactions.map((b, i) => (
+            <TransactionLine key={i} transaction={b}></TransactionLine>
+          ))
+        ) : (
+          <h3 style={{ margin: "auto" }}>No transactions yet</h3>
+        )}
+      </WidgetContent>
+    </Widget>
   );
 };

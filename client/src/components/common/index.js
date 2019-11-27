@@ -3,7 +3,7 @@ import { Loader } from "./loader";
 import React from "react";
 
 export const colors = {
-  primary: "#A4D9FF"
+  primary: "#1A9FFF"
 };
 
 export const screens = {

@@ -12,6 +12,7 @@ import { Button } from "semantic-ui-react";
 
 import { Link } from "react-router-dom";
 import { SecondaryButton } from "../../common";
+import { Loader } from "../../common/loader";
 
 const DashDiv = styled.div`
   display: flex;
@@ -36,12 +37,12 @@ const AddButton = styled(SecondaryButton)`
 `;
 
 export const Dashboard = () => {
-  const [loading, setLoading] = useState(true);
-  const { user } = useAuth0();
+  const [isLoading, setLoading] = useState(true);
+  const { user, loading } = useAuth0();
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
-    window.onresize = function() {
+    window.onresize = () => {
       window.location.reload();
     };
 
@@ -83,22 +84,28 @@ export const Dashboard = () => {
   // getUserInfo();
 
   return (
-    <DashDiv>
-      <Link to="/add-transactions">
-        <AddButton>Add Transactions</AddButton>
-      </Link>
+    <>
+      {loading ? (
+        <Loader message={"Getting your information"}></Loader>
+      ) : (
+        <DashDiv>
+          <Link to="/add-transactions">
+            <AddButton>Add Transactions</AddButton>
+          </Link>
 
-      {userInfo && (
-        <>
-          <BudgetPeriods
-            budgets={userInfo.budgets}
-            transactions={[{ vendor: "arti", amount: 25 }]}
-          ></BudgetPeriods>
-          <Budgets budgets={userInfo.budgets}></Budgets>
-          <Transactions transactions={userInfo.transactions}></Transactions>
-          <Paychecks paychecks={userInfo.paychecks}></Paychecks>
-        </>
+          {userInfo && (
+            <>
+              <BudgetPeriods
+                budgets={userInfo.budgets}
+                transactions={[{ vendor: "arti", amount: 25 }]}
+              ></BudgetPeriods>
+              <Budgets budgets={userInfo.budgets}></Budgets>
+              <Transactions transactions={userInfo.transactions}></Transactions>
+              <Paychecks paychecks={userInfo.paychecks}></Paychecks>
+            </>
+          )}
+        </DashDiv>
       )}
-    </DashDiv>
+    </>
   );
 };
