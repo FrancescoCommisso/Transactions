@@ -3,7 +3,7 @@ import createAuth0Client from "@auth0/auth0-spa-js";
 import client from "./graphql";
 import { GET_USER_BY_AUTH0_ID } from "./components/queries";
 const { REDIRECT_URL = "http://localhost:3000/callback" } = process.env;
-
+console.log("RED", REDIRECT_URL);
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
 
