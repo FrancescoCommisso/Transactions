@@ -2,7 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
 import client from "./graphql";
 import { GET_USER_BY_AUTH0_ID } from "./components/queries";
-const { REDIRECT_URL = "http://paychunk.herokuapp.com/callback" } = process.env;
+const {
+  REDIRECT_URL = "https://paychunk.herokuapp.com/callback"
+} = process.env;
 console.log("RED", REDIRECT_URL);
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
