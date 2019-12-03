@@ -10,6 +10,7 @@ import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 import WebFont from "webfontloader";
 const { REDIRECT_URL = "http://localhost:3000/callback" } = process.env;
+console.log("REDIRECT URL: ", REDIRECT_URL);
 
 WebFont.load({
   google: {
