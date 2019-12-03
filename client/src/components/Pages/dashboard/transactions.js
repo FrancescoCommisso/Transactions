@@ -45,15 +45,13 @@ export const Transactions = ({ transactions }) => {
     <Widget>
       <WidgetTitle>Transactions</WidgetTitle>
 
-      <WidgetContent
-        style={{ backgroundColor: "red", maxHeight: "400px", overflow: "auto" }}
-      >
+      <WidgetContent style={{ maxHeight: "400px", overflow: "auto" }}>
         {transactions.length > 0 ? (
           transactions.map((b, i) => (
             <TransactionLine key={i} transaction={b}></TransactionLine>
           ))
         ) : (
-          <h3 style={{ margin: "auto" }}>No transactions yet</h3>
+          <p style={{ margin: "auto" }}>No transactions yet</p>
         )}
       </WidgetContent>
     </Widget>

@@ -51,16 +51,18 @@ export const SecondaryButton = styled.button`
   background-color: white;
   color: ${colors.primary};
   font-weight: 600;
-  padding: 20px;
+  padding: 15px;
   font-size: 1rem;
   border-radius: 50px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  width: 9vw;
+  min-width: 90px;
   border: solid 2px;
   border-color: ${colors.primary};
   outline: none;
   margin: 10px;
-  min-width: 160px;
+
   transition: all 0.3s ease 0s;
   :hover {
     background-color: ${colors.primary};
@@ -191,6 +193,19 @@ export const CenterPage = styled.div`
   min-height: 90vh;
   align-items: center;
   flex-directon: column;
+`;
+
+export const IntakeContent = styled(WidgetContent)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @media (max-width: ${screens.onlyPhones}) {
+    justify-content: center;
+  }
+`;
+
+export const IntakeWidget = styled(Widget)`
+  padding: 50px;
 `;
 
 export const CenterDiv = styled.div`

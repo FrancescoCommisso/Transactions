@@ -85,7 +85,7 @@ export const Dashboard = () => {
 
   return (
     <>
-      {loading ? (
+      {false ? (
         <Loader message={"Getting your information"}></Loader>
       ) : (
         <DashDiv>

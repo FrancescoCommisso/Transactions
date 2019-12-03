@@ -1,45 +1,57 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { SecondaryButton, Wrapper } from "../../common";
-import { Title } from "./styles";
+import hasLength from "lodash";
+import {
+  SecondaryButton,
+  IntakeContent,
+  IntakeWidget,
+  CenterPage,
+  CenterDiv,
+  WidgetTitle
+} from "../../common";
 import { Input, Button } from "semantic-ui-react";
-import InputMask from "react-input-mask";
-
-const MoneyInput = props => {
-  return <InputMask {...props} mask="\$ 999\.00" maskChar="" />;
-};
 
 const ButtonWrapper = styled.span`
   margin: 20px;
 `;
 
 const BudgetLine = ({ handleChange, index, deleteBudget, nameVal, capVal }) => {
+  console.log("setting: ", { nameVal, capVal });
   return (
     <div
       style={{
-        marginBottom: "30px",
-        display: "grid",
-        gridColumnGap: "10px",
-        gridTemplateColumns: "40% 40% 20%"
+        display: "flex",
+        justifyContent: "space-between",
+        flexBasis: "100%",
+        marginBottom: "30px"
       }}
     >
-      <Input
-        style={{ width: "100%" }}
-        placeholder="Budget name"
-        onChange={handleChange}
-        id={index}
-        name="name"
-        value={nameVal}
-      ></Input>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flexBasis: "80%",
+          marginRight: "5px"
+        }}
+      >
+        <Input
+          style={{ marginBottom: "10px" }}
+          placeholder="Budget name"
+          onChange={handleChange}
+          id={index}
+          name="name"
+          value={nameVal}
+        ></Input>
 
-      <Input
-        style={{ width: "100%" }}
-        placeholder="How much you want to spend on this budget"
-        onChange={handleChange}
-        id={index}
-        value={capVal}
-        name="cap"
-      ></Input>
+        <Input
+          placeholder="How much you want to spend on this budget"
+          onChange={handleChange}
+          id={index}
+          value={capVal}
+          name="cap"
+        ></Input>
+      </div>
+
       <Button
         onClick={() => {
           deleteBudget(index);
@@ -54,6 +66,15 @@ const BudgetLine = ({ handleChange, index, deleteBudget, nameVal, capVal }) => {
 
 export const CreateBudgets = ({ nextStep, previousStep, addBudgets }) => {
   const [budgets, setBudgets] = useState([{ name: "", cap: "" }]);
+
+  useEffect(() => {
+    const { name: lastName, cap: lastCap } = budgets[budgets.length - 1];
+
+    if (lastName && lastCap) {
+      newBudget();
+    }
+    return () => {};
+  }, [budgets]);
 
   const handleChange = ({ target: { name, value, id } }) => {
     const newBudgets = budgets.map((p, i) => {
@@ -70,59 +91,67 @@ export const CreateBudgets = ({ nextStep, previousStep, addBudgets }) => {
 
   const deleteBudget = index => {
     if (budgets.length > 1) {
-      setBudgets(
-        budgets.filter((p, i) => {
-          return index !== i;
-        })
-      );
+      console.log("old Budgets: ", budgets);
+
+      console.log("about to delete budget index: ", index);
+
+      const filteredB = budgets.filter((p, i) => {
+        return index !== i;
+      });
+      console.log("new Budgets: ", filteredB);
+
+      setBudgets(filteredB);
     }
   };
 
   return (
-    <Wrapper>
-      <Title style={{ textAlign: "left" }}>
-        <h1>Create Your Budgets</h1>
-        <h3>No pressure. These can be editted later on.</h3>
-      </Title>
-      <div>
-        {budgets.map((p, i) => (
-          <BudgetLine
-            deleteBudget={deleteBudget}
-            handleChange={handleChange}
-            nameVal={p.name}
-            capVal={p.value}
-            key={i}
-            index={i}
-          ></BudgetLine>
-        ))}
-      </div>
-      <div>
-        {budgets.length < 10 && (
-          <Button
-            onClick={newBudget}
-            style={{ width: "100%", marginBottom: "10px" }}
-          >
-            Add another Budget
-          </Button>
-        )}
-      </div>
-      <div style={{ textAlign: "center" }}>
-        <ButtonWrapper>
-          <SecondaryButton onClick={() => previousStep(() => false)}>
-            Back
-          </SecondaryButton>
-        </ButtonWrapper>
-        <ButtonWrapper>
-          <SecondaryButton
-            onClick={() => {
-              addBudgets(budgets);
-              nextStep();
-            }}
-          >
-            Next
-          </SecondaryButton>
-        </ButtonWrapper>
-      </div>
-    </Wrapper>
+    <CenterPage>
+      {/* {console.log("budgets: ", budgets)} */}
+      <CenterDiv style={{ marginTop: "0px" }}>
+        <IntakeWidget>
+          <WidgetTitle>Add your budgets</WidgetTitle>
+          <IntakeContent>
+            <div style={{ flexBasis: "100%" }}>
+              {budgets.map((p, i) => {
+                return (
+                  <BudgetLine
+                    deleteBudget={deleteBudget}
+                    handleChange={handleChange}
+                    nameVal={p.name}
+                    capVal={p.cap}
+                    key={i}
+                    index={i}
+                  ></BudgetLine>
+                );
+              })}
+            </div>
+
+            <div
+              style={{
+                flexBasis: "100%",
+                justifyContent: "center",
+                display: "flex"
+              }}
+            >
+              <ButtonWrapper>
+                <SecondaryButton onClick={() => previousStep(() => false)}>
+                  Back
+                </SecondaryButton>
+              </ButtonWrapper>
+              <ButtonWrapper>
+                <SecondaryButton
+                  onClick={() => {
+                    addBudgets(budgets);
+                    nextStep();
+                  }}
+                >
+                  Next
+                </SecondaryButton>
+              </ButtonWrapper>
+            </div>
+          </IntakeContent>
+        </IntakeWidget>
+      </CenterDiv>
+    </CenterPage>
   );
 };
