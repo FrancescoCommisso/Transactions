@@ -7,13 +7,6 @@ const {
   DATABASE_PORT = 5432
 } = process.env;
 
-console.log("data: ", {
-  DATABASE,
-  DATABASE_HOST,
-  DATABASE_PASSWORD,
-  DATABASE_USER
-});
-
 const sequelize = new Sequelize(DATABASE, DATABASE_USER, DATABASE_PASSWORD, {
   host: DATABASE_HOST,
   port: DATABASE_PORT,

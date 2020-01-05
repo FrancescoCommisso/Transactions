@@ -16,7 +16,6 @@ const ButtonWrapper = styled.span`
 `;
 
 const BudgetLine = ({ handleChange, index, deleteBudget, nameVal, capVal }) => {
-  console.log("setting: ", { nameVal, capVal });
   return (
     <div
       style={{
@@ -91,14 +90,9 @@ export const CreateBudgets = ({ nextStep, previousStep, addBudgets }) => {
 
   const deleteBudget = index => {
     if (budgets.length > 1) {
-      console.log("old Budgets: ", budgets);
-
-      console.log("about to delete budget index: ", index);
-
       const filteredB = budgets.filter((p, i) => {
         return index !== i;
       });
-      console.log("new Budgets: ", filteredB);
 
       setBudgets(filteredB);
     }
@@ -106,7 +100,6 @@ export const CreateBudgets = ({ nextStep, previousStep, addBudgets }) => {
 
   return (
     <CenterPage>
-      {/* {console.log("budgets: ", budgets)} */}
       <CenterDiv style={{ marginTop: "0px" }}>
         <IntakeWidget>
           <WidgetTitle>Add your budgets</WidgetTitle>

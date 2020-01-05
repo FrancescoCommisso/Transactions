@@ -34,8 +34,6 @@ const NavBar = () => {
   const [displayName, setDisplayName] = useState(null);
   const history = useHistory();
 
-  console.log("user: ", user);
-
   useEffect(() => {
     setDisplayName("New user");
     if (user && user.email) {
@@ -74,12 +72,7 @@ const NavBar = () => {
             }}
             text={displayName}
           >
-            <Dropdown.Menu
-              style={{ right: "0", left: "auto", margin: "10px" }}
-              onChange={(e, data) => {
-                console.log(data);
-              }}
-            >
+            <Dropdown.Menu style={{ right: "0", left: "auto", margin: "10px" }}>
               <StyledDropDownItem
                 style={{ textAlign: "center" }}
                 onClick={() => {
@@ -114,12 +107,7 @@ const NavBar = () => {
             style={{ backgroundColor: "white" }}
             text={"Login / Sign up"}
           >
-            <Dropdown.Menu
-              style={{ right: "0", left: "auto" }}
-              onChange={(e, data) => {
-                console.log(data);
-              }}
-            >
+            <Dropdown.Menu style={{ right: "0", left: "auto" }}>
               <StyledDropDownItem
                 onClick={() => {
                   history.push("/login");

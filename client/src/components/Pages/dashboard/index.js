@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Profile } from "./profile";
 import styled from "styled-components";
 import { useAuth0 } from "../../../react-auth0-spa";
 import client from "../../../graphql";
@@ -8,7 +7,6 @@ import { Budgets } from "./budgets";
 import { Paychecks } from "./paychecks";
 import { Transactions } from "./transactions";
 import { BudgetPeriods } from "./budgetPeriods";
-import { Button } from "semantic-ui-react";
 
 import { Link } from "react-router-dom";
 import { SecondaryButton } from "../../common";
@@ -52,7 +50,6 @@ export const Dashboard = () => {
   });
 
   useEffect(() => {
-    console.log("user changed", user);
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);

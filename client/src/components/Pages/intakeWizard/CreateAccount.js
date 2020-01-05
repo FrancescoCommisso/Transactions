@@ -38,7 +38,6 @@ export const CreateAccount = ({ nextStep, addPersonalInfo }) => {
   const [values, setValues] = useState({});
 
   const handleChange = async ({ target: { name, value } }) => {
-    console.log("handle change: ", { name, value, values });
     setValues({ ...values, [name]: value });
   };
 

@@ -31,9 +31,8 @@ export const ConfirmInfo = ({
   const [initializeUser, setInitializeUser] = useState(null);
 
   useEffect(() => {
-    console.log(initializeUser);
     if (initializeUser === true) console.log("User created!");
-    if (initializeUser === false) console.log("Error creating user!");
+    if (initializeUser === false) console.error("Error creating user!");
     return () => {};
   }, [initializeUser]);
 

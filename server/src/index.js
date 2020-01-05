@@ -13,7 +13,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: "https://paychunk.herokuapp.com"
+    origin: ["https://paychunk.herokuapp.com", "http://localhost:3000"]
   })
 );
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,7 +31,6 @@ sequelize.sync().then(() => {
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../../client/build/index.html"), err => {
-    console.log("hit");
     if (err) {
       console.error("error: ", err);
       res.status(500).send(err);

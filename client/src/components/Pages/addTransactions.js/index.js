@@ -44,11 +44,7 @@ const Content = () => {
         console.log(e);
       }}
     ></CSVReader> */}
-      <div
-        onDragEnter={() => {
-          console.log("drag enter");
-        }}
-      >
+      <div onDragEnter={() => {}}>
         {loading ? (
           <Placeholder
             style={{ margin: "auto", width: "20vh", height: "20vh" }}
@@ -79,7 +75,6 @@ const Content = () => {
                 userId: testUserId
               }
             });
-            console.log("result:", res);
           }}
         >
           Create Transactions
