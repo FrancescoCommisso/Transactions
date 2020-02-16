@@ -25,7 +25,11 @@ routes(app, services);
 
 sequelize.sync().then(() => {
   app.listen(port, () => {
-    console.log(`App is running on port ${port}`);
+    console.log(
+      `\n****************************************\n 
+    Paychunk is running on port ${port}
+       \n****************************************\n`
+    );
   });
 });
 

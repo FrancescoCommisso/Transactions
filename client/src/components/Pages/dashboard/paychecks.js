@@ -27,7 +27,6 @@ const PaycheckLine = ({ paycheck }) => {
         style={{ marginLeft: "20px", borderRadius: "5px" }}
         blurring
         inverted
-        large
         as={StyledLabel}
         tex
         dimmed={hide}

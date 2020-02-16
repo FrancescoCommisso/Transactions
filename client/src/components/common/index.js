@@ -211,3 +211,9 @@ export const IntakeWidget = styled(Widget)`
 export const CenterDiv = styled.div`
   margin: auto;
 `;
+
+export const DoubleButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  flexbasis: 100%;
+`;

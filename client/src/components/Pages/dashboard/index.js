@@ -78,7 +78,7 @@ export const Dashboard = () => {
     setUserInfo(() => getUserByAuthId);
   };
 
-  // getUserInfo();
+  getUserInfo();
 
   return (
     <>

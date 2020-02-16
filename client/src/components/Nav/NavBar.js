@@ -16,6 +16,7 @@ const NavDiv = styled.div`
   align-items: center;
   background-color: white;
   height: 15vh;
+  max-height: 150px;
 `;
 
 const StyledDropDownItem = styled(Dropdown.Item)`
@@ -53,6 +54,7 @@ const NavBar = () => {
           display: "block",
           marginRight: "auto ",
           width: "10vw",
+          maxWidth: "150px",
           minWidth: "100px",
           padding: "20px"
         }}
@@ -62,9 +64,7 @@ const NavBar = () => {
       <span>
         {user && (
           <Dropdown
-            large
-            button
-            large
+            large="true"
             button
             style={{
               backgroundColor: "white",
@@ -102,7 +102,7 @@ const NavBar = () => {
       {!isAuthenticated && !loading && (
         <span>
           <Dropdown
-            large
+            large="true"
             button
             style={{ backgroundColor: "white" }}
             text={"Login / Sign up"}

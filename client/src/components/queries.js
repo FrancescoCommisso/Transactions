@@ -97,6 +97,12 @@ export const GET_USER_BY_AUTH0_ID = gql`
       firstName
       lastName
       budgetPeriod
+      budgets {
+        name
+        cap
+        budgetId
+        color
+      }
     }
   }
 `;

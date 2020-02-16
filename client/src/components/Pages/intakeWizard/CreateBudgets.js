@@ -7,7 +7,8 @@ import {
   IntakeWidget,
   CenterPage,
   CenterDiv,
-  WidgetTitle
+  WidgetTitle,
+  DoubleButtonDiv
 } from "../../common";
 import { Input, Button } from "semantic-ui-react";
 
@@ -119,13 +120,7 @@ export const CreateBudgets = ({ nextStep, previousStep, addBudgets }) => {
               })}
             </div>
 
-            <div
-              style={{
-                flexBasis: "100%",
-                justifyContent: "center",
-                display: "flex"
-              }}
-            >
+            <DoubleButtonDiv>
               <ButtonWrapper>
                 <SecondaryButton onClick={() => previousStep(() => false)}>
                   Back
@@ -141,7 +136,7 @@ export const CreateBudgets = ({ nextStep, previousStep, addBudgets }) => {
                   Next
                 </SecondaryButton>
               </ButtonWrapper>
-            </div>
+            </DoubleButtonDiv>
           </IntakeContent>
         </IntakeWidget>
       </CenterDiv>
